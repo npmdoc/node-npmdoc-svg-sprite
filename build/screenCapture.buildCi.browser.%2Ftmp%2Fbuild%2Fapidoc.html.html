@@ -1,0 +1,3414 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/jkphl/svg-sprite">svg-sprite (v1.3.6)</a>
+</h1>
+<h4>SVG sprites &amp; stacks galore â€” A low-level Node.js module that takes a bunch of SVG files, optimizes them and bakes them into SVG sprites of several types along with suitable stylesheet resources (e.g. CSS, Sass, LESS, Stylus, etc.)</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svg-sprite">module svg-sprite</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.svg-sprite">
+            function <span class="apidocSignatureSpan"></span>svg-sprite
+            <span class="apidocSignatureSpan">(config)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.base">
+            function <span class="apidocSignatureSpan">svg-sprite.</span>base
+            <span class="apidocSignatureSpan">(spriter, config, data, key)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.css">
+            function <span class="apidocSignatureSpan">svg-sprite.</span>css
+            <span class="apidocSignatureSpan">(spriter, config, data, key)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.defs">
+            function <span class="apidocSignatureSpan">svg-sprite.</span>defs
+            <span class="apidocSignatureSpan">(spriter, config, data, key)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.layouter">
+            function <span class="apidocSignatureSpan">svg-sprite.</span>layouter
+            <span class="apidocSignatureSpan">(spriter, config)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.queue">
+            function <span class="apidocSignatureSpan">svg-sprite.</span>queue
+            <span class="apidocSignatureSpan">(spriter)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.sprite">
+            function <span class="apidocSignatureSpan">svg-sprite.</span>sprite
+            <span class="apidocSignatureSpan">(xmlDeclaration, doctypeDeclaration, rootAttributes, addSVGNamespaces, transform)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.stack">
+            function <span class="apidocSignatureSpan">svg-sprite.</span>stack
+            <span class="apidocSignatureSpan">(spriter, config, data, key)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.standalone">
+            function <span class="apidocSignatureSpan">svg-sprite.</span>standalone
+            <span class="apidocSignatureSpan">(spriter, config, data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.symbol">
+            function <span class="apidocSignatureSpan">svg-sprite.</span>symbol
+            <span class="apidocSignatureSpan">(spriter, config, data, key)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.view">
+            function <span class="apidocSignatureSpan">svg-sprite.</span>view
+            <span class="apidocSignatureSpan">(spriter, config, data, key)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svg-sprite.</span>base.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svg-sprite.</span>css.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svg-sprite.</span>defs.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svg-sprite.</span>layouter.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svg-sprite.</span>queue.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svg-sprite.</span>sprite.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svg-sprite.</span>stack.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svg-sprite.</span>standalone.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svg-sprite.</span>symbol.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">svg-sprite.</span>view.prototype</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svg-sprite.base">module svg-sprite.base</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.base.base">
+            function <span class="apidocSignatureSpan">svg-sprite.</span>base
+            <span class="apidocSignatureSpan">(spriter, config, data, key)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svg-sprite.base.prototype">module svg-sprite.base.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.base.prototype._addCacheBusting">
+            function <span class="apidocSignatureSpan">svg-sprite.base.prototype.</span>_addCacheBusting
+            <span class="apidocSignatureSpan">(svg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.base.prototype._addUnit">
+            function <span class="apidocSignatureSpan">svg-sprite.base.prototype.</span>_addUnit
+            <span class="apidocSignatureSpan">(number, unit)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.base.prototype._buildCSSResources">
+            function <span class="apidocSignatureSpan">svg-sprite.base.prototype.</span>_buildCSSResources
+            <span class="apidocSignatureSpan">(files, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.base.prototype._buildHTMLExample">
+            function <span class="apidocSignatureSpan">svg-sprite.base.prototype.</span>_buildHTMLExample
+            <span class="apidocSignatureSpan">(files, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.base.prototype._initData">
+            function <span class="apidocSignatureSpan">svg-sprite.base.prototype.</span>_initData
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.base.prototype.declaration">
+            function <span class="apidocSignatureSpan">svg-sprite.base.prototype.</span>declaration
+            <span class="apidocSignatureSpan">(global, local)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.base.prototype.layout">
+            function <span class="apidocSignatureSpan">svg-sprite.base.prototype.</span>layout
+            <span class="apidocSignatureSpan">(files, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svg-sprite.base.prototype.</span>MODE_CSS</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svg-sprite.base.prototype.</span>MODE_DEFS</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svg-sprite.base.prototype.</span>MODE_STACK</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svg-sprite.base.prototype.</span>MODE_SYMBOL</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svg-sprite.base.prototype.</span>MODE_VIEW</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svg-sprite.base.prototype.</span>tmpl</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svg-sprite.css">module svg-sprite.css</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.css.css">
+            function <span class="apidocSignatureSpan">svg-sprite.</span>css
+            <span class="apidocSignatureSpan">(spriter, config, data, key)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svg-sprite.css.prototype">module svg-sprite.css.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.css.prototype._addShapeToCSSSprite">
+            function <span class="apidocSignatureSpan">svg-sprite.css.prototype.</span>_addShapeToCSSSprite
+            <span class="apidocSignatureSpan">(shape, needsRegular, index, position, rootAttributes, positionX, positionY)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.css.prototype._addShapeToSimpleCssSprite">
+            function <span class="apidocSignatureSpan">svg-sprite.css.prototype.</span>_addShapeToSimpleCssSprite
+            <span class="apidocSignatureSpan">(shape, needsRegular, index, position)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.css.prototype._buildSVG">
+            function <span class="apidocSignatureSpan">svg-sprite.css.prototype.</span>_buildSVG
+            <span class="apidocSignatureSpan">(xmlDeclaration, doctypeDeclaration)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.css.prototype._init">
+            function <span class="apidocSignatureSpan">svg-sprite.css.prototype.</span>_init
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.css.prototype._layout">
+            function <span class="apidocSignatureSpan">svg-sprite.css.prototype.</span>_layout
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.css.prototype._layoutBinPacked">
+            function <span class="apidocSignatureSpan">svg-sprite.css.prototype.</span>_layoutBinPacked
+            <span class="apidocSignatureSpan">(pseudoShapeMap)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.css.prototype._layoutSimple">
+            function <span class="apidocSignatureSpan">svg-sprite.css.prototype.</span>_layoutSimple
+            <span class="apidocSignatureSpan">(pseudoShapeMap)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.css.prototype._refineRootAttributes">
+            function <span class="apidocSignatureSpan">svg-sprite.css.prototype.</span>_refineRootAttributes
+            <span class="apidocSignatureSpan">(shape, index, rootAttributes)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.css.prototype._round">
+            function <span class="apidocSignatureSpan">svg-sprite.css.prototype.</span>_round
+            <span class="apidocSignatureSpan">(n)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.css.prototype.constructor">
+            function <span class="apidocSignatureSpan">svg-sprite.css.prototype.</span>constructor
+            <span class="apidocSignatureSpan">(spriter, config, data, key)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.css.prototype.layout">
+            function <span class="apidocSignatureSpan">svg-sprite.css.prototype.</span>layout
+            <span class="apidocSignatureSpan">(files, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svg-sprite.css.prototype.</span>LAYOUT_DIAGONAL</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svg-sprite.css.prototype.</span>LAYOUT_HORIZONTAL</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svg-sprite.css.prototype.</span>LAYOUT_PACKED</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svg-sprite.css.prototype.</span>LAYOUT_VERTICAL</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svg-sprite.css.prototype.</span>mode</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svg-sprite.css.prototype.</span>tmpl</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svg-sprite.defs">module svg-sprite.defs</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.defs.defs">
+            function <span class="apidocSignatureSpan">svg-sprite.</span>defs
+            <span class="apidocSignatureSpan">(spriter, config, data, key)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svg-sprite.defs.prototype">module svg-sprite.defs.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.defs.prototype._buildSVG">
+            function <span class="apidocSignatureSpan">svg-sprite.defs.prototype.</span>_buildSVG
+            <span class="apidocSignatureSpan">(xmlDeclaration, doctypeDeclaration)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.defs.prototype.constructor">
+            function <span class="apidocSignatureSpan">svg-sprite.defs.prototype.</span>constructor
+            <span class="apidocSignatureSpan">(spriter, config, data, key)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.defs.prototype.layout">
+            function <span class="apidocSignatureSpan">svg-sprite.defs.prototype.</span>layout
+            <span class="apidocSignatureSpan">(files, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svg-sprite.defs.prototype.</span>mode</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svg-sprite.layouter">module svg-sprite.layouter</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.layouter.layouter">
+            function <span class="apidocSignatureSpan">svg-sprite.</span>layouter
+            <span class="apidocSignatureSpan">(spriter, config)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svg-sprite.layouter.prototype">module svg-sprite.layouter.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.layouter.prototype.layout">
+            function <span class="apidocSignatureSpan">svg-sprite.layouter.prototype.</span>layout
+            <span class="apidocSignatureSpan">(files, key, mode, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svg-sprite.queue">module svg-sprite.queue</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.queue.queue">
+            function <span class="apidocSignatureSpan">svg-sprite.</span>queue
+            <span class="apidocSignatureSpan">(spriter)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svg-sprite.queue.prototype">module svg-sprite.queue.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.queue.prototype.add">
+            function <span class="apidocSignatureSpan">svg-sprite.queue.prototype.</span>add
+            <span class="apidocSignatureSpan">(file)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.queue.prototype.process">
+            function <span class="apidocSignatureSpan">svg-sprite.queue.prototype.</span>process
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.queue.prototype.remove">
+            function <span class="apidocSignatureSpan">svg-sprite.queue.prototype.</span>remove
+            <span class="apidocSignatureSpan">(error, shape)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svg-sprite.sprite">module svg-sprite.sprite</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.sprite.sprite">
+            function <span class="apidocSignatureSpan">svg-sprite.</span>sprite
+            <span class="apidocSignatureSpan">(xmlDeclaration, doctypeDeclaration, rootAttributes, addSVGNamespaces, transform)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svg-sprite.sprite.prototype">module svg-sprite.sprite.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.sprite.prototype.add">
+            function <span class="apidocSignatureSpan">svg-sprite.sprite.prototype.</span>add
+            <span class="apidocSignatureSpan">(content)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.sprite.prototype.toFile">
+            function <span class="apidocSignatureSpan">svg-sprite.sprite.prototype.</span>toFile
+            <span class="apidocSignatureSpan">(base, path)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.sprite.prototype.toString">
+            function <span class="apidocSignatureSpan">svg-sprite.sprite.prototype.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svg-sprite.sprite.prototype.</span>DEFAULT_SVG_NAMESPACE</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svg-sprite.sprite.prototype.</span>XLINK_NAMESPACE</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svg-sprite.stack">module svg-sprite.stack</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.stack.stack">
+            function <span class="apidocSignatureSpan">svg-sprite.</span>stack
+            <span class="apidocSignatureSpan">(spriter, config, data, key)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svg-sprite.stack.prototype">module svg-sprite.stack.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.stack.prototype._buildSVG">
+            function <span class="apidocSignatureSpan">svg-sprite.stack.prototype.</span>_buildSVG
+            <span class="apidocSignatureSpan">(xmlDeclaration, doctypeDeclaration)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.stack.prototype._init">
+            function <span class="apidocSignatureSpan">svg-sprite.stack.prototype.</span>_init
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.stack.prototype.constructor">
+            function <span class="apidocSignatureSpan">svg-sprite.stack.prototype.</span>constructor
+            <span class="apidocSignatureSpan">(spriter, config, data, key)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.stack.prototype.layout">
+            function <span class="apidocSignatureSpan">svg-sprite.stack.prototype.</span>layout
+            <span class="apidocSignatureSpan">(files, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svg-sprite.stack.prototype.</span>mode</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svg-sprite.standalone">module svg-sprite.standalone</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.standalone.standalone">
+            function <span class="apidocSignatureSpan">svg-sprite.</span>standalone
+            <span class="apidocSignatureSpan">(spriter, config, data)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svg-sprite.standalone.prototype">module svg-sprite.standalone.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.standalone.prototype._init">
+            function <span class="apidocSignatureSpan">svg-sprite.standalone.prototype.</span>_init
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.standalone.prototype._layout">
+            function <span class="apidocSignatureSpan">svg-sprite.standalone.prototype.</span>_layout
+            <span class="apidocSignatureSpan">(files, cb, extend)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.standalone.prototype.constructor">
+            function <span class="apidocSignatureSpan">svg-sprite.standalone.prototype.</span>constructor
+            <span class="apidocSignatureSpan">(spriter, config, data)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svg-sprite.symbol">module svg-sprite.symbol</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.symbol.symbol">
+            function <span class="apidocSignatureSpan">svg-sprite.</span>symbol
+            <span class="apidocSignatureSpan">(spriter, config, data, key)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svg-sprite.symbol.prototype">module svg-sprite.symbol.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.symbol.prototype._buildSVG">
+            function <span class="apidocSignatureSpan">svg-sprite.symbol.prototype.</span>_buildSVG
+            <span class="apidocSignatureSpan">(xmlDeclaration, doctypeDeclaration)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.symbol.prototype.constructor">
+            function <span class="apidocSignatureSpan">svg-sprite.symbol.prototype.</span>constructor
+            <span class="apidocSignatureSpan">(spriter, config, data, key)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.symbol.prototype.layout">
+            function <span class="apidocSignatureSpan">svg-sprite.symbol.prototype.</span>layout
+            <span class="apidocSignatureSpan">(files, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svg-sprite.symbol.prototype.</span>mode</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svg-sprite.view">module svg-sprite.view</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.view.view">
+            function <span class="apidocSignatureSpan">svg-sprite.</span>view
+            <span class="apidocSignatureSpan">(spriter, config, data, key)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.svg-sprite.view.prototype">module svg-sprite.view.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.view.prototype._buildSVG">
+            function <span class="apidocSignatureSpan">svg-sprite.view.prototype.</span>_buildSVG
+            <span class="apidocSignatureSpan">(xmlDeclaration, doctypeDeclaration)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.view.prototype._initData">
+            function <span class="apidocSignatureSpan">svg-sprite.view.prototype.</span>_initData
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.view.prototype._refineRootAttributes">
+            function <span class="apidocSignatureSpan">svg-sprite.view.prototype.</span>_refineRootAttributes
+            <span class="apidocSignatureSpan">(shape, index, rootAttributes)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.svg-sprite.view.prototype.constructor">
+            function <span class="apidocSignatureSpan">svg-sprite.view.prototype.</span>constructor
+            <span class="apidocSignatureSpan">(spriter, config, data, key)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">svg-sprite.view.prototype.</span>mode</span>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svg-sprite" id="apidoc.module.svg-sprite">module svg-sprite</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.svg-sprite" id="apidoc.element.svg-sprite.svg-sprite">
+        function <span class="apidocSignatureSpan"></span>svg-sprite
+        <span class="apidocSignatureSpan">(config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">svg-sprite = function (config) {
+	return new SVGSpriter(config || {});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.base" id="apidoc.element.svg-sprite.base">
+        function <span class="apidocSignatureSpan">svg-sprite.</span>base
+        <span class="apidocSignatureSpan">(spriter, config, data, key)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function SVGSpriteBase(spriter, config, data, key) {
+	this._spriter					= spriter;
+	this.config						= config;
+	this.key						= key || this.mode;
+	this.data						= data;
+	this.data.mode					= this.mode;
+	this.data.key					= this.key;
+
+	// Resolve file paths
+	this.config.dest				= path.resolve(this._spriter.config.dest, this.config.dest);
+	if ('sprite' in this.config) {
+		var spriteName				= path.basename(this.config.sprite) || 'sprite',
+		spritePath					= path.dirname(this.config.sprite);
+		if (spriteName.indexOf('.') &lt; 0) {
+			spriteName				+= '.svg';
+		}
+		this.config.sprite			= path.resolve(this.config.dest, path.join(spritePath, spriteName));
+	}
+
+	// Prepare the rendering configurations
+	if (('render' in this.config) &amp;&amp; _.isObject(this.config.render)) {
+		for (var extension in this.config.render) {
+			var renderConfig		= {
+				template			: path.resolve(path.dirname(path.dirname(path.dirname(__dirname))), path.join('tmpl', this.tmpl, 'sprite.' + extension
+)),
+				dest				: path.join(this.config.dest, 'sprite.' + extension)
+			};
+			if (_.isObject(this.config.render[extension])) {
+				if ('template' in this.config.render[extension]) {
+					renderConfig.template		= path.resolve(process.cwd(), this.config.render[extension].template);
+				}
+				if ('dest' in this.config.render[extension]) {
+					renderConfig.dest			= path.resolve(this.config.dest, this.config.render[extension].dest);
+					if (!renderConfig.dest.match(new RegExp('\\.' + extension + '$', 'i'))) {
+						renderConfig.dest		+= '.' + extension;
+					}
+				}
+			} else if (this.config.render[extension] !== true) {
+				delete this.config.render[extension];
+				continue;
+			}
+			this.config.render[extension]		= renderConfig;
+		}
+		this._cssDest				= ('css' in this.config.render) ? path.dirname(this.config.render.css.dest) : this.config.dest;
+	} else {
+		this._cssDest				= this.config.dest;
+	}
+
+	// Cache busting
+	this.config.bust				= !!this.config.bust;
+
+	// Prepare the CSS prefix
+	this.config.prefix				= this.config.prefix.trim();
+	if (!/%s/g.test(this.config.prefix.split('%%').join(''))) {
+		this.config.prefix			+= '%s';
+	}
+
+	// Refine the base data
+	this.data						= _.merge(this.data, this._initData({
+		padding						: this._spriter.config.shape.spacing.padding,
+		sprite						: path.relative(this._cssDest, this.config.sprite).split(path.sep).join('/')
+	}));
+
+	this._init();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.css" id="apidoc.element.svg-sprite.css">
+        function <span class="apidocSignatureSpan">svg-sprite.</span>css
+        <span class="apidocSignatureSpan">(spriter, config, data, key)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function SVGSpriteCss(spriter, config, data, key) {
+	SVGSpriteBase.apply(this, [spriter, config, data, key]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.defs" id="apidoc.element.svg-sprite.defs">
+        function <span class="apidocSignatureSpan">svg-sprite.</span>defs
+        <span class="apidocSignatureSpan">(spriter, config, data, key)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function SVGSpriteDefs(spriter, config, data, key) {
+	SVGSpriteStandalone.apply(this, [spriter, config, data, key]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.layouter" id="apidoc.element.svg-sprite.layouter">
+        function <span class="apidocSignatureSpan">svg-sprite.</span>layouter
+        <span class="apidocSignatureSpan">(spriter, config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function SVGSpriteLayouter(spriter, config) {
+    this._spriter                   = spriter;
+    this.config                     = config;
+    this.mode                       = null;
+    this.files                      = {};
+    this.data                       = {};
+    this._commonData                = _.extend({shapes: []}, defaultVariables, this._spriter.config.variables);
+
+    // Register the common shapes data
+    this._spriter._shapes.forEach(function(shape, index) {
+        var dimensions              = shape.getDimensions(),
+        padding                     = shape.config.spacing.padding;
+
+        this._commonData.shapes.push({
+            name                    : shape.id,
+            base                    : shape.base,
+            master                  : shape.master ? shape.master.id : null,
+            width                   : {
+                inner               : dimensions.width - padding.right - padding.left,
+                outer               : dimensions.width
+            },
+            height                  : {
+                inner               : dimensions.height - padding.top - padding.bottom,
+                outer               : dimensions.height
+            },
+            first                   : !index,
+            last                    : (index === (this._spriter._shapes.length - 1))
+        });
+    }, this);
+
+    this._spriter.debug('Created layouter instance');
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.queue" id="apidoc.element.svg-sprite.queue">
+        function <span class="apidocSignatureSpan">svg-sprite.</span>queue
+        <span class="apidocSignatureSpan">(spriter)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function SVGSpriterQueue(spriter) {
+	this._spriter		= spriter;
+	this._files			= [];
+	this._limit			= os.cpus().length * 2;
+	this.active			= 0;
+
+	events.EventEmitter.call(this);
+	this.on('add', this.process.bind(this));
+	this.on('remove', this.process.bind(this));
+
+	this._spriter.debug('Created processing queue instance');
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.sprite" id="apidoc.element.svg-sprite.sprite">
+        function <span class="apidocSignatureSpan">svg-sprite.</span>sprite
+        <span class="apidocSignatureSpan">(xmlDeclaration, doctypeDeclaration, rootAttributes, addSVGNamespaces, transform)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function SVGSprite(xmlDeclaration, doctypeDeclaration, rootAttributes, addSVGNamespaces, transform) {
+	this.xmlDeclaration				= xmlDeclaration || '';
+	this.doctypeDeclaration			= doctypeDeclaration || '';
+	this.rootAttributes				= _.extend({}, rootAttributes);
+	this.transform					= transform;
+	this.content					= [];
+	this._serialized				= null;
+
+	if (!!addSVGNamespaces) {
+		this.rootAttributes['xmlns']		= this.DEFAULT_SVG_NAMESPACE;
+		this.rootAttributes['xmlns:xlink']	= this.XLINK_NAMESPACE;
+	}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.stack" id="apidoc.element.svg-sprite.stack">
+        function <span class="apidocSignatureSpan">svg-sprite.</span>stack
+        <span class="apidocSignatureSpan">(spriter, config, data, key)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function SVGSpriteStack(spriter, config, data, key) {
+	SVGSpriteStandalone.apply(this, [spriter, config, data, key]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.standalone" id="apidoc.element.svg-sprite.standalone">
+        function <span class="apidocSignatureSpan">svg-sprite.</span>standalone
+        <span class="apidocSignatureSpan">(spriter, config, data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function SVGSpriteStandalone(spriter, config, data) {
+	SVGSpriteBase.apply(this, [spriter, config, data]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.symbol" id="apidoc.element.svg-sprite.symbol">
+        function <span class="apidocSignatureSpan">svg-sprite.</span>symbol
+        <span class="apidocSignatureSpan">(spriter, config, data, key)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function SVGSpriteSymbol(spriter, config, data, key) {
+	SVGSpriteStandalone.apply(this, [spriter, config, data, key]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.view" id="apidoc.element.svg-sprite.view">
+        function <span class="apidocSignatureSpan">svg-sprite.</span>view
+        <span class="apidocSignatureSpan">(spriter, config, data, key)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function SVGSpriteView(spriter, config, data, key) {
+	SVGSpriteCss.apply(this, [spriter, config, data, key]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svg-sprite.base" id="apidoc.module.svg-sprite.base">module svg-sprite.base</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.base.base" id="apidoc.element.svg-sprite.base.base">
+        function <span class="apidocSignatureSpan">svg-sprite.</span>base
+        <span class="apidocSignatureSpan">(spriter, config, data, key)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function SVGSpriteBase(spriter, config, data, key) {
+	this._spriter					= spriter;
+	this.config						= config;
+	this.key						= key || this.mode;
+	this.data						= data;
+	this.data.mode					= this.mode;
+	this.data.key					= this.key;
+
+	// Resolve file paths
+	this.config.dest				= path.resolve(this._spriter.config.dest, this.config.dest);
+	if ('sprite' in this.config) {
+		var spriteName				= path.basename(this.config.sprite) || 'sprite',
+		spritePath					= path.dirname(this.config.sprite);
+		if (spriteName.indexOf('.') &lt; 0) {
+			spriteName				+= '.svg';
+		}
+		this.config.sprite			= path.resolve(this.config.dest, path.join(spritePath, spriteName));
+	}
+
+	// Prepare the rendering configurations
+	if (('render' in this.config) &amp;&amp; _.isObject(this.config.render)) {
+		for (var extension in this.config.render) {
+			var renderConfig		= {
+				template			: path.resolve(path.dirname(path.dirname(path.dirname(__dirname))), path.join('tmpl', this.tmpl, 'sprite.' + extension
+)),
+				dest				: path.join(this.config.dest, 'sprite.' + extension)
+			};
+			if (_.isObject(this.config.render[extension])) {
+				if ('template' in this.config.render[extension]) {
+					renderConfig.template		= path.resolve(process.cwd(), this.config.render[extension].template);
+				}
+				if ('dest' in this.config.render[extension]) {
+					renderConfig.dest			= path.resolve(this.config.dest, this.config.render[extension].dest);
+					if (!renderConfig.dest.match(new RegExp('\\.' + extension + '$', 'i'))) {
+						renderConfig.dest		+= '.' + extension;
+					}
+				}
+			} else if (this.config.render[extension] !== true) {
+				delete this.config.render[extension];
+				continue;
+			}
+			this.config.render[extension]		= renderConfig;
+		}
+		this._cssDest				= ('css' in this.config.render) ? path.dirname(this.config.render.css.dest) : this.config.dest;
+	} else {
+		this._cssDest				= this.config.dest;
+	}
+
+	// Cache busting
+	this.config.bust				= !!this.config.bust;
+
+	// Prepare the CSS prefix
+	this.config.prefix				= this.config.prefix.trim();
+	if (!/%s/g.test(this.config.prefix.split('%%').join(''))) {
+		this.config.prefix			+= '%s';
+	}
+
+	// Refine the base data
+	this.data						= _.merge(this.data, this._initData({
+		padding						: this._spriter.config.shape.spacing.padding,
+		sprite						: path.relative(this._cssDest, this.config.sprite).split(path.sep).join('/')
+	}));
+
+	this._init();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svg-sprite.base.prototype" id="apidoc.module.svg-sprite.base.prototype">module svg-sprite.base.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.base.prototype._addCacheBusting" id="apidoc.element.svg-sprite.base.prototype._addCacheBusting">
+        function <span class="apidocSignatureSpan">svg-sprite.base.prototype.</span>_addCacheBusting
+        <span class="apidocSignatureSpan">(svg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_addCacheBusting = function (svg) {
+	var sprite						= this.config.sprite;
+	if (this.config.bust) {
+		var hash					= '-' + crypto.createHash('md5')
+									.update(svg.toString(), 'utf8')
+									.digest('hex')
+									.substr(0, 8),
+		extension					= path.extname(sprite);
+		sprite						= path.join(path.dirname(sprite), path.basename(sprite, extension) + hash + extension);
+		this.data.sprite			= path.relative(this._cssDest, sprite).split(path.sep).join('/');
+		if (this.config.example) {
+			this.data.example		= path.relative(path.dirname(this.config.example.dest), sprite).split(path.sep).join('/');
+		}
+	}
+
+	return sprite;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+		{
+			viewBox					: '0 0 ' + this.data.spriteWidth + ' ' + this.data.spriteHeight
+		}
+	),
+	svg								= new SVGSprite(this.declaration(this.config.svg.xmlDeclaration, xmlDeclaration), this.declaration(this.config.svg.doctypeDeclaration
+, doctypeDeclaration), rootAttributes, true, this.config.svg.transform);
+	svg.add(pluck(this.data.shapes, 'svg'));
+
+	return svg.toFile(this._spriter.config.dest, this.<span class="apidocCodeKeywordSpan">_addCacheBusting</span>(svg));
+};
+
+/**
+* Round a number considering the given decimal place precision for CSS positioning values
+*
+* @param {Number} n            Number
+* @return {Number}             Rounded number
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.base.prototype._addUnit" id="apidoc.element.svg-sprite.base.prototype._addUnit">
+        function <span class="apidocSignatureSpan">svg-sprite.base.prototype.</span>_addUnit
+        <span class="apidocSignatureSpan">(number, unit)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_addUnit = function (number, unit) {
+	return number + ((number !== 0) ? (unit || 'px') : '');
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+				y					= shape.position.absolute.y ? (100 * Math.abs(shape.position.absolute.y) / (this.data.spriteHeight - shape.height.outer
+)) : 0;
+			}
+
+			// Set the relative position
+			shape.position.relative	= {
+				x					: this._round(x),
+				y					: this._round(y),
+				xy					: this.<span class="apidocCodeKeywordSpan">_addUnit</span>(this._round(x), '%') + ' ' + this._addUnit
+(this._round(y), '%')
+			};
+
+
+			if (!shape.master) {
+				positionMap[this._spriter._shapes[index].id]	= _.pick(shape.position.absolute, ['x', 'y']);
+			}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.base.prototype._buildCSSResources" id="apidoc.element.svg-sprite.base.prototype._buildCSSResources">
+        function <span class="apidocSignatureSpan">svg-sprite.base.prototype.</span>_buildCSSResources
+        <span class="apidocSignatureSpan">(files, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_buildCSSResources = function (files, cb) {
+	var tasks						= [],
+	createResourceTask				= function(renderConfig, data, spriter, ext){
+		return function(_cb) {
+			var out					= mustache.render(fs.readFileSync(renderConfig.template, 'utf-8'), data);
+			if (out.length) {
+				files[ext]			= new File({
+					base			: spriter.config.dest,
+					path			: renderConfig.dest,
+					contents		: new Buffer(out)
+				});
+				spriter.verbose('Created Â«%sÂ» stylesheet resource', ext);
+			}
+			_cb(null);
+		};
+	};
+
+	for (var extension in this.config.render) {
+		tasks.push(createResourceTask(this.config.render[extension], this.data, this._spriter, extension));
+	}
+
+	async.parallelLimit(tasks, os.cpus().length * 2, cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+	var config						= this._layout();
+
+	// Build the sprite SVG file
+	files.sprite					= this._buildSVG(config.xmlDeclaration || '', config.doctypeDeclaration || '');
+	this._spriter.verbose('Created Â«%sÂ» SVG sprite file (Â«%sÂ» mode)', this.key, this.mode);
+
+	// Build the configured CSS resources
+	this.<span class="apidocCodeKeywordSpan">_buildCSSResources</span>(files, function(error) {
+
+		// In case of errors: Break
+		if (error) {
+			cb(error);
+
+		// Else: Build the HTML example
+		} else {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.base.prototype._buildHTMLExample" id="apidoc.element.svg-sprite.base.prototype._buildHTMLExample">
+        function <span class="apidocSignatureSpan">svg-sprite.base.prototype.</span>_buildHTMLExample
+        <span class="apidocSignatureSpan">(files, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_buildHTMLExample = function (files, cb) {
+	if (this.config.example) {
+		var out						= mustache.render(fs.readFileSync(this.config.example.template, 'utf-8'), this.data);
+		if (out.length) {
+			files.example			= new File({
+				base				: this._spriter.config.dest,
+				path				: this.config.example.dest,
+				contents			: new Buffer(out)
+			});
+			this._spriter.verbose('Created Â«%sÂ» HTML example file', this.key);
+		}
+	}
+
+	cb(null, this.data);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+		// In case of errors: Break
+		if (error) {
+			cb(error);
+
+		// Else: Build the HTML example
+		} else {
+			this.<span class="apidocCodeKeywordSpan">_buildHTMLExample</span>(files, cb);
+		}
+	}.bind(this));
+};
+
+/**
+* Layout the sprite (internal)
+*
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.base.prototype._initData" id="apidoc.element.svg-sprite.base.prototype._initData">
+        function <span class="apidocSignatureSpan">svg-sprite.base.prototype.</span>_initData
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_initData = function (data) {
+
+	// If the HTML example should be rendered
+	if (this.config.example) {
+		var renderConfig			= {
+			template				: path.resolve(path.dirname(path.dirname(path.dirname(__dirname))), path.join('tmpl', this.mode, 'sprite.html')),
+			dest					: path.join(this.config.dest, 'sprite.' + this.key + '.html')
+		};
+		if (_.isObject(this.config.example)) {
+			if ('template' in this.config.example) {
+				renderConfig.template		= path.resolve(process.cwd(), this.config.example.template);
+			}
+			if ('dest' in this.config.example) {
+				renderConfig.dest			= path.resolve(this.config.dest, this.config.example.dest);
+			}
+		} else if (this.config.example !== true) {
+			renderConfig			= false;
+		}
+		this.config.example			= renderConfig;
+		data.example				= path.relative(path.dirname(renderConfig.dest), this.config.sprite).split(path.sep).join('/');
+	}
+
+	this._spriter.debug('Created Â«%sÂ» sprite instance (Â«%sÂ» mode)', this.key, this.mode);
+
+	return data;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+	// Prepare the CSS prefix
+	this.config.prefix				= this.config.prefix.trim();
+	if (!/%s/g.test(this.config.prefix.split('%%').join(''))) {
+		this.config.prefix			+= '%s';
+	}
+
+	// Refine the base data
+	this.data						= _.merge(this.data, this.<span class="apidocCodeKeywordSpan">_initData</span>({
+		padding						: this._spriter.config.shape.spacing.padding,
+		sprite						: path.relative(this._cssDest, this.config.sprite).split(path.sep).join('/')
+	}));
+
+	this._init();
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.base.prototype.declaration" id="apidoc.element.svg-sprite.base.prototype.declaration">
+        function <span class="apidocSignatureSpan">svg-sprite.base.prototype.</span>declaration
+        <span class="apidocSignatureSpan">(global, local)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">declaration = function (global, local) {
+	if (global === true) {
+		return local || '';
+	}
+	return String(global || '').trim();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+			width					: this.data.spriteWidth,
+			height					: this.data.spriteHeight
+		} : {},
+		{
+			viewBox					: '0 0 ' + this.data.spriteWidth + ' ' + this.data.spriteHeight
+		}
+	),
+	svg								= new SVGSprite(this.<span class="apidocCodeKeywordSpan">declaration</span>(this.config.svg.xmlDeclaration, xmlDeclaration
+), this.declaration(this.config.svg.doctypeDeclaration, doctypeDeclaration), rootAttributes, true, this.config.svg.transform);
+	svg.add(pluck(this.data.shapes, 'svg'));
+
+	return svg.toFile(this._spriter.config.dest, this._addCacheBusting(svg));
+};
+
+/**
+* Round a number considering the given decimal place precision for CSS positioning values
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.base.prototype.layout" id="apidoc.element.svg-sprite.base.prototype.layout">
+        function <span class="apidocSignatureSpan">svg-sprite.base.prototype.</span>layout
+        <span class="apidocSignatureSpan">(files, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">layout = function (files, cb) {
+	cb(null);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+SVGSpriteLayouter.prototype.layout = function(files, key, mode, cb) {
+	this._spriter.info('Laying out Â«%sÂ» sprite (Â«%sÂ» mode)', key, mode);
+	var SVGSpriteLayout				= require('./mode/' + mode),
+   config                          = _.merge(_.merge(_.clone(defaultConfig[mode], true), {svg: this._spriter.config.svg}), this.
+config[key] || {}),
+   data                            = _.merge(_.merge(_.merge({}, this._commonData), this._spriter.config.variables), config.variables
+),
+   sprite                          = new SVGSpriteLayout(this._spriter, config, data, key);
+   files[key]						= {};
+   sprite.<span class="apidocCodeKeywordSpan">layout</span>(files[key], cb);
+};
+
+/**
+* Module export (constructor wrapper)
+*
+* @param {SVGSpriter} spriter		SVG spriter
+* @param {Object} config			Layout configuration
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svg-sprite.css" id="apidoc.module.svg-sprite.css">module svg-sprite.css</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.css.css" id="apidoc.element.svg-sprite.css.css">
+        function <span class="apidocSignatureSpan">svg-sprite.</span>css
+        <span class="apidocSignatureSpan">(spriter, config, data, key)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function SVGSpriteCss(spriter, config, data, key) {
+	SVGSpriteBase.apply(this, [spriter, config, data, key]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svg-sprite.css.prototype" id="apidoc.module.svg-sprite.css.prototype">module svg-sprite.css.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.css.prototype._addShapeToCSSSprite" id="apidoc.element.svg-sprite.css.prototype._addShapeToCSSSprite">
+        function <span class="apidocSignatureSpan">svg-sprite.css.prototype.</span>_addShapeToCSSSprite
+        <span class="apidocSignatureSpan">(shape, needsRegular, index, position, rootAttributes, positionX, positionY)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_addShapeToCSSSprite = function (shape, needsRegular, index, position, rootAttributes, positionX, positionY) {
+
+	// Prepare the selectors
+	var selector					= {
+		shape						: (needsRegular || shape.state) ? [{
+			expression				: util.format(this.config.prefix, shape.base + (shape.state ? (':' + shape.state) : '')),
+			raw						: util.format(this.config.prefix, shape.base + (shape.state ? (':' + shape.state) : '')),
+			first					: true,
+			last					: false
+		}, {
+			expression				: util.format(this.config.prefix, shape.base + '\\:' + (shape.state || 'regular')),
+			raw						: util.format(this.config.prefix, shape.base + ':' + (shape.state || 'regular')),
+			first					: false,
+			last					: true
+		}] : [{
+			expression				: util.format(this.config.prefix, shape.base),
+			raw						: util.format(this.config.prefix, shape.base),
+			first					: true,
+			last					: true
+		}]
+	};
+
+	// Prepare the dimension properties
+	if (this.config.dimensions !== true) {
+		selector.dimensions			= shape.state ? [{
+			expression				: util.format(this.config.dimensions, shape.base) + ':' + shape.state,
+			raw						: util.format(this.config.dimensions, shape.base) + ':' + shape.state,
+			first					: true,
+			last					: false
+		}, {
+			expression				: util.format(this.config.dimensions, shape.base + '\\:' + shape.state),
+			raw						: util.format(this.config.dimensions, shape.base + ':' + shape.state),
+			first					: false,
+			last					: true
+		}] : [{
+			expression				: util.format(this.config.dimensions, shape.base),
+			raw						: util.format(this.config.dimensions, shape.base),
+			first					: true,
+			last					: true
+		}];
+	}
+
+	// Register the SVG parameters
+	_.assign(this.data.shapes[index], {
+		first						: !!(position &amp; 1),
+		last						: !!(position &amp; 2),
+		position					: {
+			absolute				: {
+				x					: positionX,
+				y					: positionY,
+				xy					: this._addUnit(positionX, 'px') + ' ' + this._addUnit(positionY, 'px')
+			}
+		},
+		selector					: selector,
+		dimensions					: {
+			inline					: (this.config.dimensions === true),
+			extra					: !!(_.isString(this.config.dimensions) &amp;&amp; this.config.dimensions.length)
+		}
+	});
+
+	// Create the SVG getter/setter
+	Object.defineProperty(this.data.shapes[index], '_svg', {
+	    enumerable					: false,
+	    writable					: true
+	});
+	this.data.shapes[index].__defineGetter__('svg', function() {
+		return this._svg || shape.getSVG(true, function(shapeDOM) {
+			for (var r in rootAttributes) {
+				shapeDOM.setAttribute(r, rootAttributes[r]);
+			}
+		});
+	});
+	this.data.shapes[index].__defineSetter__('svg', function(svg) {
+		this._svg					= svg;
+	});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+			rootAttributes.y		= this.data.spriteHeight;
+			positionY				= -this.data.spriteHeight;
+
+			this.data.spriteWidth	= Math.max(this.data.spriteWidth, dimensions.width);
+			this.data.spriteHeight	= Math.ceil(this.data.spriteHeight + dimensions.height);
+	}
+
+	this.<span class="apidocCodeKeywordSpan">_addShapeToCSSSprite</span>(shape, needsRegular, index, position, this._refineRootAttributes
+(shape, index, rootAttributes), positionX, positionY);
+};
+
+/**
+* Layout a binpacked CSS sprite
+*
+* @see http://codeincomplete.com/posts/2011/5/7/bin_packing/
+* @param {Object} pseudoShapeMap	Pseudo shape map
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.css.prototype._addShapeToSimpleCssSprite" id="apidoc.element.svg-sprite.css.prototype._addShapeToSimpleCssSprite">
+        function <span class="apidocSignatureSpan">svg-sprite.css.prototype.</span>_addShapeToSimpleCssSprite
+        <span class="apidocSignatureSpan">(shape, needsRegular, index, position)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_addShapeToSimpleCssSprite = function (shape, needsRegular, index, position) {
+	var dimensions					= shape.getDimensions(),
+		rootAttributes				= {id: shape.id},
+		positionX					= 0,
+		positionY					= 0;
+
+	switch (this.config.layout) {
+
+		// Horizontal sprite arrangement
+		case this.LAYOUT_HORIZONTAL:
+			rootAttributes.y		= 0;
+			rootAttributes.x		= this.data.spriteWidth;
+			positionX				= -this.data.spriteWidth;
+
+			this.data.spriteWidth	= Math.ceil(this.data.spriteWidth + dimensions.width);
+			this.data.spriteHeight	= Math.max(this.data.spriteHeight, dimensions.height);
+			break;
+
+		// Diagonal sprite arrangement
+		case this.LAYOUT_DIAGONAL:
+			rootAttributes.x		= this.data.spriteWidth;
+			rootAttributes.y		= this.data.spriteHeight;
+			positionX				= -this.data.spriteWidth;
+			positionY				= -this.data.spriteHeight;
+
+			this.data.spriteWidth	= Math.ceil(this.data.spriteWidth + dimensions.width);
+			this.data.spriteHeight	= Math.ceil(this.data.spriteHeight + dimensions.height);
+			break;
+
+		// Vertical sprite arrangement (default)
+		default:
+			rootAttributes.x		= 0;
+			rootAttributes.y		= this.data.spriteHeight;
+			positionY				= -this.data.spriteHeight;
+
+			this.data.spriteWidth	= Math.max(this.data.spriteWidth, dimensions.width);
+			this.data.spriteHeight	= Math.ceil(this.data.spriteHeight + dimensions.height);
+	}
+
+	this._addShapeToCSSSprite(shape, needsRegular, index, position, this._refineRootAttributes(shape, index, rootAttributes), positionX
+, positionY);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+*
+* @param {Object} pseudoShapeMap	Pseudo shape map
+* @return {SVGSpriteCss}			Self reference
+*/
+SVGSpriteCss.prototype._layoutSimple = function(pseudoShapeMap) {
+	this._spriter._shapes.forEach(function(shape, index){
+		if (this._displaceable || !shape.master) {
+			this.<span class="apidocCodeKeywordSpan">_addShapeToSimpleCssSprite</span>(shape, pseudoShapeMap[shape.base], index, !index + (
+index === this._spriter._shapes.length - 1) * 2);
+		}
+	}, this);
+	return this;
+};
+
+/**
+* Add a single shape to the simple CSS sprite
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.css.prototype._buildSVG" id="apidoc.element.svg-sprite.css.prototype._buildSVG">
+        function <span class="apidocSignatureSpan">svg-sprite.css.prototype.</span>_buildSVG
+        <span class="apidocSignatureSpan">(xmlDeclaration, doctypeDeclaration)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_buildSVG = function (xmlDeclaration, doctypeDeclaration) {
+	var rootAttributes				= _.extend(
+		{},
+		this.config.svg.rootAttributes,
+		this.config.svg.dimensionAttributes ? {
+			width					: this.data.spriteWidth,
+			height					: this.data.spriteHeight
+		} : {},
+		{
+			viewBox					: '0 0 ' + this.data.spriteWidth + ' ' + this.data.spriteHeight
+		}
+	),
+	svg								= new SVGSprite(this.declaration(this.config.svg.xmlDeclaration, xmlDeclaration), this.declaration(this.config.svg.doctypeDeclaration
+, doctypeDeclaration), rootAttributes, true, this.config.svg.transform);
+	svg.add(pluck(this.data.shapes, 'svg'));
+
+	return svg.toFile(this._spriter.config.dest, this._addCacheBusting(svg));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ */
+SVGSpriteCss.prototype.layout = function(files, cb) {
+
+	// Layout the sprite
+	var config						= this._layout();
+
+	// Build the sprite SVG file
+	files.sprite					= this.<span class="apidocCodeKeywordSpan">_buildSVG</span>(config.xmlDeclaration || '', config.doctypeDeclaration
+ || '');
+	this._spriter.verbose('Created Â«%sÂ» SVG sprite file (Â«%sÂ» mode)', this.key, this.mode);
+
+	// Build the configured CSS resources
+	this._buildCSSResources(files, function(error) {
+
+		// In case of errors: Break
+		if (error) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.css.prototype._init" id="apidoc.element.svg-sprite.css.prototype._init">
+        function <span class="apidocSignatureSpan">svg-sprite.css.prototype.</span>_init
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_init = function () {
+
+	// Prepare the dimension suffix
+	if (this.config.dimensions &amp;&amp; (this.config.dimensions !== true)) {
+		this.config.dimensions		= /%s/g.test((this.config.dimensions || '').split('%%').join('')) ? util.format(this.config.dimensions
+, this.config.prefix) : (this.config.prefix + this.config.dimensions);
+	}
+
+	// Determine the mixin mode and name
+	switch(typeof this.config.mixin) {
+
+		// String: Use the given string as mixin name
+		case 'string':
+			this.config.mixin		= this.config.mixin.trim().length ? this.config.mixin.trim() : null;
+			break;
+
+		// Boolean: Use the common CSS class name (if any)
+		case 'boolean':
+			this.config.mixin		= !!this.config.common ? this.config.common : null;
+			break;
+
+		// Default: Don't use mixin
+		default:
+			this.config.mixin		= null;
+			break;
+	}
+
+	// Refine the base data
+	this.data						= _.assign(this.data, {
+		hasCommon					: !!this.config.common,
+		common						: this.config.common,
+		commonName					: this.config.common || 'svg-common',
+		hasMixin					: !!this.config.mixin,
+		mixinName					: this.config.mixin,
+		includeDimensions			: !!this.config.dimensions,
+		spriteWidth					: 0,
+		spriteHeight				: 0
+	});
+
+	// Determine if this sprite accepts displaced shape copies
+	this._displaceable				= ([this.LAYOUT_VERTICAL, this.LAYOUT_HORIZONTAL].indexOf(this.config.layout) &gt;= 0);
+
+	this._precision                 = (+this.config.svg.precision &gt;= 0) ? Math.pow(10, +this.config.svg.precision) : null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+	// Refine the base data
+	this.data						= _.merge(this.data, this._initData({
+		padding						: this._spriter.config.shape.spacing.padding,
+		sprite						: path.relative(this._cssDest, this.config.sprite).split(path.sep).join('/')
+	}));
+
+	this.<span class="apidocCodeKeywordSpan">_init</span>();
+}
+
+/**
+* Prototype
+*
+* @type {Object}
+*/
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.css.prototype._layout" id="apidoc.element.svg-sprite.css.prototype._layout">
+        function <span class="apidocSignatureSpan">svg-sprite.css.prototype.</span>_layout
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_layout = function () {
+
+	// Build a map of shape IDs that need to get a ':regular' pseudo class in CSS
+	var pseudoShapeMap				= {};
+	this._spriter._shapes.forEach(function(shape) {
+		pseudoShapeMap[shape.base]	= pseudoShapeMap[shape.base] || !!shape.state;
+	}, this._spriter);
+
+	// Layout the sprite
+	this[(this.config.layout === this.LAYOUT_PACKED) ? '_layoutBinPacked' : '_layoutSimple'](pseudoShapeMap);
+
+	// Refine the shape data
+	var xmlDeclaration				= null,
+	doctypeDeclaration				= null,
+	positionMap						= {};
+	this.data.shapes.forEach(function(shape, index) {
+
+		// Skip non-master shapes for all but orthogonal layouts
+		if (this._displaceable || !shape.master) {
+			xmlDeclaration			= xmlDeclaration || this._spriter._shapes[index].xmlDeclaration;
+			doctypeDeclaration		= doctypeDeclaration || this._spriter._shapes[index].doctypeDeclaration;
+			var x, y;
+
+			// For vertical layouts: Set the horizontal alignment
+			if (this.config.layout === this.LAYOUT_VERTICAL) {
+				x					= this._spriter._shapes[index].align * 100;
+				shape.position.absolute.x		= this._spriter._shapes[index]._round(- x * (this.data.spriteWidth - shape.width.outer) / 100);
+
+			// Else: Determine the relative horizontal position
+			} else {
+				x					= shape.position.absolute.x ? (100 * Math.abs(shape.position.absolute.x) / (this.data.spriteWidth - shape.width.outer)) :
+0;
+			}
+
+			// For horizontal layouts: Set the vertical alignment
+			if (this.config.layout === this.LAYOUT_HORIZONTAL) {
+				y					= this._spriter._shapes[index].align * 100;
+				shape.position.absolute.y		= this._spriter._shapes[index]._round(- y * (this.data.spriteHeight - shape.height.outer) / 100);
+
+			// Else: Determine the relative vertical position
+			} else {
+				y					= shape.position.absolute.y ? (100 * Math.abs(shape.position.absolute.y) / (this.data.spriteHeight - shape.height.outer
+)) : 0;
+			}
+
+			// Set the relative position
+			shape.position.relative	= {
+				x					: this._round(x),
+				y					: this._round(y),
+				xy					: this._addUnit(this._round(x), '%') + ' ' + this._addUnit(this._round(y), '%')
+			};
+
+
+			if (!shape.master) {
+				positionMap[this._spriter._shapes[index].id]	= _.pick(shape.position.absolute, ['x', 'y']);
+			}
+
+			// Rework zero-valued positions
+			var svg					= shape.svg.split('&gt;');
+
+			// Replace zero-valued x-positions
+			var svgX				= svg[0].split(' x="0"');
+			if (svgX.length &gt; 1) {
+				x					= shape.master ? (shape.position.absolute.x - positionMap[shape.master].x) : shape.position.absolute.x;
+				svg[0]				= svgX.join(x ? (' x="' + (-x) + '"') : '');
+			}
+
+			// Replace zero-valued y-positions
+			var svgY				= svg[0].split(' y="0"');
+			if (svgY.length &gt; 1) {
+				y					= shape.master ? (shape.position.absolute.y - positionMap[shape.master].y) : shape.position.absolute.y;
+				svg[0]				= svgY.join(y ? (' y="' + (-y) + '"') : '');
+			}
+
+			shape.svg				= svg.join('&gt;');
+		}
+
+	}, this);
+
+	// Remove all non-master shapes for non-displaceable sprites
+	if (!this._displaceable) {
+		this.data.shapes				= _.reject(this.data.shapes, function(shape){ return !!shape.master; });
+	}
+
+	return {
+		xmlDeclaration				: xmlDeclaration,
+		doctypeDeclaration			: doctypeDeclaration
+	};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * @param {Array} files				Files
+ * @param {Function} cb				Callback
+ * @return {void}
+ */
+SVGSpriteCss.prototype.layout = function(files, cb) {
+
+	// Layout the sprite
+	var config						= this.<span class="apidocCodeKeywordSpan">_layout</span>();
+
+	// Build the sprite SVG file
+	files.sprite					= this._buildSVG(config.xmlDeclaration || '', config.doctypeDeclaration || '');
+	this._spriter.verbose('Created Â«%sÂ» SVG sprite file (Â«%sÂ» mode)', this.key, this.mode);
+
+	// Build the configured CSS resources
+	this._buildCSSResources(files, function(error) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.css.prototype._layoutBinPacked" id="apidoc.element.svg-sprite.css.prototype._layoutBinPacked">
+        function <span class="apidocSignatureSpan">svg-sprite.css.prototype.</span>_layoutBinPacked
+        <span class="apidocSignatureSpan">(pseudoShapeMap)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_layoutBinPacked = function (pseudoShapeMap) {
+	var SVGSpriteCssPacker			= require('./css/packer'),
+	packer							= new SVGSpriteCssPacker(this._spriter._shapes),
+	positions						= packer.fit();
+
+	// Run through all shapes and add them to the sprite
+	this._spriter._shapes.forEach(function(shape, index){
+
+		// Skip non-master shapes
+		if (!shape.master) {
+			var dimensions			= shape.getDimensions(),
+			position				= positions[index],
+			rootAttributes			= {id: shape.id, x: position.x, y: position.y};
+
+			this.data.spriteWidth	= Math.max(this.data.spriteWidth, Math.ceil(position.x + dimensions.width));
+			this.data.spriteHeight	= Math.max(this.data.spriteHeight, Math.ceil(position.y + dimensions.height));
+
+			this._addShapeToCSSSprite(shape, pseudoShapeMap[shape.base], index, !index + (index === this._spriter._shapes.length - 1) * 2
+, this._refineRootAttributes(shape, index, rootAttributes), -position.x, -position.y);
+		}
+	}, this);
+
+	return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.css.prototype._layoutSimple" id="apidoc.element.svg-sprite.css.prototype._layoutSimple">
+        function <span class="apidocSignatureSpan">svg-sprite.css.prototype.</span>_layoutSimple
+        <span class="apidocSignatureSpan">(pseudoShapeMap)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_layoutSimple = function (pseudoShapeMap) {
+	this._spriter._shapes.forEach(function(shape, index){
+		if (this._displaceable || !shape.master) {
+			this._addShapeToSimpleCssSprite(shape, pseudoShapeMap[shape.base], index, !index + (index === this._spriter._shapes.length -
+1) * 2);
+		}
+	}, this);
+	return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.css.prototype._refineRootAttributes" id="apidoc.element.svg-sprite.css.prototype._refineRootAttributes">
+        function <span class="apidocSignatureSpan">svg-sprite.css.prototype.</span>_refineRootAttributes
+        <span class="apidocSignatureSpan">(shape, index, rootAttributes)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_refineRootAttributes = function (shape, index, rootAttributes) {
+	return rootAttributes;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+			rootAttributes.y		= this.data.spriteHeight;
+			positionY				= -this.data.spriteHeight;
+
+			this.data.spriteWidth	= Math.max(this.data.spriteWidth, dimensions.width);
+			this.data.spriteHeight	= Math.ceil(this.data.spriteHeight + dimensions.height);
+	}
+
+	this._addShapeToCSSSprite(shape, needsRegular, index, position, this.<span class="apidocCodeKeywordSpan">_refineRootAttributes<!--
+span-->(shape, index, rootAttributes), positionX, positionY);
+};
+
+/**
+* Layout a binpacked CSS sprite
+*
+* @see http://codeincomplete.com/posts/2011/5/7/bin_packing/
+* @param {Object} pseudoShapeMap	Pseudo shape map
+...</span></pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.css.prototype._round" id="apidoc.element.svg-sprite.css.prototype._round">
+        function <span class="apidocSignatureSpan">svg-sprite.css.prototype.</span>_round
+        <span class="apidocSignatureSpan">(n)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_round = function (n) {
+	return this._precision ? (Math.round(n * this._precision) / this._precision) : n;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * Set the dimensions of this shape
+ *
+ * @param {Number} width		Width
+ * @param {Number} height		Height
+ * @return {SVGShape}			Self reference
+ */
+SVGShape.prototype.setDimensions = function(width, height) {
+	this.width				= this.<span class="apidocCodeKeywordSpan">_round</span>(Math.max(0, parseFloat(width, 10)));
+	this.dom.documentElement.setAttribute('width', this.width);
+	this.height				= this._round(Math.max(0, parseFloat(height, 10)));
+	this.dom.documentElement.setAttribute('height', this.height);
+	return this;
+};
+
+/**
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.css.prototype.constructor" id="apidoc.element.svg-sprite.css.prototype.constructor">
+        function <span class="apidocSignatureSpan">svg-sprite.css.prototype.</span>constructor
+        <span class="apidocSignatureSpan">(spriter, config, data, key)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function SVGSpriteCss(spriter, config, data, key) {
+	SVGSpriteBase.apply(this, [spriter, config, data, key]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.css.prototype.layout" id="apidoc.element.svg-sprite.css.prototype.layout">
+        function <span class="apidocSignatureSpan">svg-sprite.css.prototype.</span>layout
+        <span class="apidocSignatureSpan">(files, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">layout = function (files, cb) {
+
+	// Layout the sprite
+	var config						= this._layout();
+
+	// Build the sprite SVG file
+	files.sprite					= this._buildSVG(config.xmlDeclaration || '', config.doctypeDeclaration || '');
+	this._spriter.verbose('Created Â«%sÂ» SVG sprite file (Â«%sÂ» mode)', this.key, this.mode);
+
+	// Build the configured CSS resources
+	this._buildCSSResources(files, function(error) {
+
+		// In case of errors: Break
+		if (error) {
+			cb(error);
+
+		// Else: Build the HTML example
+		} else {
+			this._buildHTMLExample(files, cb);
+		}
+	}.bind(this));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+SVGSpriteLayouter.prototype.layout = function(files, key, mode, cb) {
+	this._spriter.info('Laying out Â«%sÂ» sprite (Â«%sÂ» mode)', key, mode);
+	var SVGSpriteLayout				= require('./mode/' + mode),
+   config                          = _.merge(_.merge(_.clone(defaultConfig[mode], true), {svg: this._spriter.config.svg}), this.
+config[key] || {}),
+   data                            = _.merge(_.merge(_.merge({}, this._commonData), this._spriter.config.variables), config.variables
+),
+   sprite                          = new SVGSpriteLayout(this._spriter, config, data, key);
+   files[key]						= {};
+   sprite.<span class="apidocCodeKeywordSpan">layout</span>(files[key], cb);
+};
+
+/**
+* Module export (constructor wrapper)
+*
+* @param {SVGSpriter} spriter		SVG spriter
+* @param {Object} config			Layout configuration
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svg-sprite.defs" id="apidoc.module.svg-sprite.defs">module svg-sprite.defs</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.defs.defs" id="apidoc.element.svg-sprite.defs.defs">
+        function <span class="apidocSignatureSpan">svg-sprite.</span>defs
+        <span class="apidocSignatureSpan">(spriter, config, data, key)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function SVGSpriteDefs(spriter, config, data, key) {
+	SVGSpriteStandalone.apply(this, [spriter, config, data, key]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svg-sprite.defs.prototype" id="apidoc.module.svg-sprite.defs.prototype">module svg-sprite.defs.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.defs.prototype._buildSVG" id="apidoc.element.svg-sprite.defs.prototype._buildSVG">
+        function <span class="apidocSignatureSpan">svg-sprite.defs.prototype.</span>_buildSVG
+        <span class="apidocSignatureSpan">(xmlDeclaration, doctypeDeclaration)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_buildSVG = function (xmlDeclaration, doctypeDeclaration) {
+	var inline						= !!this.config.inline,
+	rootAttributes					= _.extend(
+		{},
+		this.config.svg.rootAttributes
+	),
+	svg								= new SVGSprite(inline ? '' : this.declaration(this.config.svg.xmlDeclaration, xmlDeclaration), inline ? '' : this.declaration
+(this.config.svg.doctypeDeclaration, doctypeDeclaration), inline ? _.extend(
+			rootAttributes,
+			this.config.svg.dimensionAttributes ? {
+				width						: 0,
+				height						: 0
+			} : {},
+			{
+				style						: 'position:absolute'
+			}
+		) : rootAttributes, !inline, this.config.svg.transform);
+	svg.add('&lt;defs&gt;');
+	svg.add(pluck(this.data.shapes, 'svg'));
+	svg.add('&lt;/defs&gt;');
+
+	return svg.toFile(this._spriter.config.dest, this._addCacheBusting(svg));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ */
+SVGSpriteCss.prototype.layout = function(files, cb) {
+
+	// Layout the sprite
+	var config						= this._layout();
+
+	// Build the sprite SVG file
+	files.sprite					= this.<span class="apidocCodeKeywordSpan">_buildSVG</span>(config.xmlDeclaration || '', config.doctypeDeclaration
+ || '');
+	this._spriter.verbose('Created Â«%sÂ» SVG sprite file (Â«%sÂ» mode)', this.key, this.mode);
+
+	// Build the configured CSS resources
+	this._buildCSSResources(files, function(error) {
+
+		// In case of errors: Break
+		if (error) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.defs.prototype.constructor" id="apidoc.element.svg-sprite.defs.prototype.constructor">
+        function <span class="apidocSignatureSpan">svg-sprite.defs.prototype.</span>constructor
+        <span class="apidocSignatureSpan">(spriter, config, data, key)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function SVGSpriteDefs(spriter, config, data, key) {
+	SVGSpriteStandalone.apply(this, [spriter, config, data, key]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.defs.prototype.layout" id="apidoc.element.svg-sprite.defs.prototype.layout">
+        function <span class="apidocSignatureSpan">svg-sprite.defs.prototype.</span>layout
+        <span class="apidocSignatureSpan">(files, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">layout = function (files, cb) {
+	this._layout(files, cb, function(shape, dataShape /*, index*/){
+		var dimensionAttributes		= shape.config.dimension.attributes;
+
+		// Create the SVG getter/setter
+		dataShape.__defineGetter__('svg', function() {
+			return this._svg || shape.getSVG(true, function(shapeDOM) {
+				shapeDOM.setAttribute('id', shape.id);
+
+				if (!dimensionAttributes) {
+					shapeDOM.removeAttribute('width');
+					shapeDOM.removeAttribute('height');
+				}
+			});
+		});
+	});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+SVGSpriteLayouter.prototype.layout = function(files, key, mode, cb) {
+	this._spriter.info('Laying out Â«%sÂ» sprite (Â«%sÂ» mode)', key, mode);
+	var SVGSpriteLayout				= require('./mode/' + mode),
+   config                          = _.merge(_.merge(_.clone(defaultConfig[mode], true), {svg: this._spriter.config.svg}), this.
+config[key] || {}),
+   data                            = _.merge(_.merge(_.merge({}, this._commonData), this._spriter.config.variables), config.variables
+),
+   sprite                          = new SVGSpriteLayout(this._spriter, config, data, key);
+   files[key]						= {};
+   sprite.<span class="apidocCodeKeywordSpan">layout</span>(files[key], cb);
+};
+
+/**
+* Module export (constructor wrapper)
+*
+* @param {SVGSpriter} spriter		SVG spriter
+* @param {Object} config			Layout configuration
+...</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svg-sprite.layouter" id="apidoc.module.svg-sprite.layouter">module svg-sprite.layouter</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.layouter.layouter" id="apidoc.element.svg-sprite.layouter.layouter">
+        function <span class="apidocSignatureSpan">svg-sprite.</span>layouter
+        <span class="apidocSignatureSpan">(spriter, config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function SVGSpriteLayouter(spriter, config) {
+    this._spriter                   = spriter;
+    this.config                     = config;
+    this.mode                       = null;
+    this.files                      = {};
+    this.data                       = {};
+    this._commonData                = _.extend({shapes: []}, defaultVariables, this._spriter.config.variables);
+
+    // Register the common shapes data
+    this._spriter._shapes.forEach(function(shape, index) {
+        var dimensions              = shape.getDimensions(),
+        padding                     = shape.config.spacing.padding;
+
+        this._commonData.shapes.push({
+            name                    : shape.id,
+            base                    : shape.base,
+            master                  : shape.master ? shape.master.id : null,
+            width                   : {
+                inner               : dimensions.width - padding.right - padding.left,
+                outer               : dimensions.width
+            },
+            height                  : {
+                inner               : dimensions.height - padding.top - padding.bottom,
+                outer               : dimensions.height
+            },
+            first                   : !index,
+            last                    : (index === (this._spriter._shapes.length - 1))
+        });
+    }, this);
+
+    this._spriter.debug('Created layouter instance');
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svg-sprite.layouter.prototype" id="apidoc.module.svg-sprite.layouter.prototype">module svg-sprite.layouter.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.layouter.prototype.layout" id="apidoc.element.svg-sprite.layouter.prototype.layout">
+        function <span class="apidocSignatureSpan">svg-sprite.layouter.prototype.</span>layout
+        <span class="apidocSignatureSpan">(files, key, mode, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">layout = function (files, key, mode, cb) {
+	this._spriter.info('Laying out Â«%sÂ» sprite (Â«%sÂ» mode)', key, mode);
+	var SVGSpriteLayout				= require('./mode/' + mode),
+    config                          = _.merge(_.merge(_.clone(defaultConfig[mode], true), {svg: this._spriter.config.svg}), this
+.config[key] || {}),
+    data                            = _.merge(_.merge(_.merge({}, this._commonData), this._spriter.config.variables), config.variables
+),
+    sprite                          = new SVGSpriteLayout(this._spriter, config, data, key);
+    files[key]						= {};
+    sprite.layout(files[key], cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+SVGSpriteLayouter.prototype.layout = function(files, key, mode, cb) {
+	this._spriter.info('Laying out Â«%sÂ» sprite (Â«%sÂ» mode)', key, mode);
+	var SVGSpriteLayout				= require('./mode/' + mode),
+   config                          = _.merge(_.merge(_.clone(defaultConfig[mode], true), {svg: this._spriter.config.svg}), this.
+config[key] || {}),
+   data                            = _.merge(_.merge(_.merge({}, this._commonData), this._spriter.config.variables), config.variables
+),
+   sprite                          = new SVGSpriteLayout(this._spriter, config, data, key);
+   files[key]						= {};
+   sprite.<span class="apidocCodeKeywordSpan">layout</span>(files[key], cb);
+};
+
+/**
+* Module export (constructor wrapper)
+*
+* @param {SVGSpriter} spriter		SVG spriter
+* @param {Object} config			Layout configuration
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svg-sprite.queue" id="apidoc.module.svg-sprite.queue">module svg-sprite.queue</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.queue.queue" id="apidoc.element.svg-sprite.queue.queue">
+        function <span class="apidocSignatureSpan">svg-sprite.</span>queue
+        <span class="apidocSignatureSpan">(spriter)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function SVGSpriterQueue(spriter) {
+	this._spriter		= spriter;
+	this._files			= [];
+	this._limit			= os.cpus().length * 2;
+	this.active			= 0;
+
+	events.EventEmitter.call(this);
+	this.on('add', this.process.bind(this));
+	this.on('remove', this.process.bind(this));
+
+	this._spriter.debug('Created processing queue instance');
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svg-sprite.queue.prototype" id="apidoc.module.svg-sprite.queue.prototype">module svg-sprite.queue.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.queue.prototype.add" id="apidoc.element.svg-sprite.queue.prototype.add">
+        function <span class="apidocSignatureSpan">svg-sprite.queue.prototype.</span>add
+        <span class="apidocSignatureSpan">(file)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">add = function (file) {
+	this._spriter.debug('Added "%s" to processing queue', file.path.substr(file.base.length + path.sep.length));
+	this._files.push(file);
+	this.emit('add');
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+	return f.concat(glob.sync(g));
+}, []).forEach(function (file) {
+	file = path.resolve(file);
+	var stat = fs.lstatSync(file);
+	if (stat.isSymbolicLink()) {
+		file = fs.readlinkSync(file);
+	}
+	spriter.<span class="apidocCodeKeywordSpan">add</span>(file, path.basename(file), fs.readFileSync(file));
+});
+
+spriter.compile(function (error, result /*, data*/) {
+	if (error) {
+		console.error(error);
+	} else {
+		writeFiles(result);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.queue.prototype.process" id="apidoc.element.svg-sprite.queue.prototype.process">
+        function <span class="apidocSignatureSpan">svg-sprite.queue.prototype.</span>process
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">process = function () {
+	if (this._files.length &amp;&amp; (this.active &lt; this._limit)) {
+		++this.active;
+		var file		= this._files.shift();
+
+		// Instanciate the shape
+		try {
+			var shape	= new SHAPE(file, this._spriter),
+			spriter		= this._spriter;
+
+		// In case of errors: Skip the file
+		} catch(e) {
+			this._spriter.error('Skipping "%s" (%s)', file.path.substr(file.base.length + path.sep.length), e.message);
+			this.emit(--this.active ? 'remove' : 'empty');
+			return;
+		}
+
+		// Subsequently run through all optimization and compilation tasks
+		async.waterfall([
+
+			// Transform the shape
+			function(_cb){
+				spriter._transformShape(shape, _cb);
+			},
+
+			// Complement the shape
+			function(_cb){
+				shape.complement(_cb);
+			}
+
+		], this.remove.bind(this));
+	}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.queue.prototype.remove" id="apidoc.element.svg-sprite.queue.prototype.remove">
+        function <span class="apidocSignatureSpan">svg-sprite.queue.prototype.</span>remove
+        <span class="apidocSignatureSpan">(error, shape)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">remove = function (error, shape) {
+	Array.prototype.push.apply(this._spriter._shapes, shape.distribute());
+	this.emit(--this.active ? 'remove' : 'empty');
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svg-sprite.sprite" id="apidoc.module.svg-sprite.sprite">module svg-sprite.sprite</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.sprite.sprite" id="apidoc.element.svg-sprite.sprite.sprite">
+        function <span class="apidocSignatureSpan">svg-sprite.</span>sprite
+        <span class="apidocSignatureSpan">(xmlDeclaration, doctypeDeclaration, rootAttributes, addSVGNamespaces, transform)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function SVGSprite(xmlDeclaration, doctypeDeclaration, rootAttributes, addSVGNamespaces, transform) {
+	this.xmlDeclaration				= xmlDeclaration || '';
+	this.doctypeDeclaration			= doctypeDeclaration || '';
+	this.rootAttributes				= _.extend({}, rootAttributes);
+	this.transform					= transform;
+	this.content					= [];
+	this._serialized				= null;
+
+	if (!!addSVGNamespaces) {
+		this.rootAttributes['xmlns']		= this.DEFAULT_SVG_NAMESPACE;
+		this.rootAttributes['xmlns:xlink']	= this.XLINK_NAMESPACE;
+	}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svg-sprite.sprite.prototype" id="apidoc.module.svg-sprite.sprite.prototype">module svg-sprite.sprite.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.sprite.prototype.add" id="apidoc.element.svg-sprite.sprite.prototype.add">
+        function <span class="apidocSignatureSpan">svg-sprite.sprite.prototype.</span>add
+        <span class="apidocSignatureSpan">(content)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">add = function (content) {
+	if (_.isArray(content)) {
+		this.content.push.apply(this.content, content);
+	} else {
+		this.content.push(content);
+	}
+
+	this._serialized				= null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+	return f.concat(glob.sync(g));
+}, []).forEach(function (file) {
+	file = path.resolve(file);
+	var stat = fs.lstatSync(file);
+	if (stat.isSymbolicLink()) {
+		file = fs.readlinkSync(file);
+	}
+	spriter.<span class="apidocCodeKeywordSpan">add</span>(file, path.basename(file), fs.readFileSync(file));
+});
+
+spriter.compile(function (error, result /*, data*/) {
+	if (error) {
+		console.error(error);
+	} else {
+		writeFiles(result);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.sprite.prototype.toFile" id="apidoc.element.svg-sprite.sprite.prototype.toFile">
+        function <span class="apidocSignatureSpan">svg-sprite.sprite.prototype.</span>toFile
+        <span class="apidocSignatureSpan">(base, path)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toFile = function (base, path) {
+	return new File({
+		base						: base,
+		path						: path,
+		contents					: new Buffer(this.toString())
+	});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+		{
+			viewBox					: '0 0 ' + this.data.spriteWidth + ' ' + this.data.spriteHeight
+		}
+	),
+	svg								= new SVGSprite(this.declaration(this.config.svg.xmlDeclaration, xmlDeclaration), this.declaration(this.config.svg.doctypeDeclaration
+, doctypeDeclaration), rootAttributes, true, this.config.svg.transform);
+	svg.add(pluck(this.data.shapes, 'svg'));
+
+	return svg.<span class="apidocCodeKeywordSpan">toFile</span>(this._spriter.config.dest, this._addCacheBusting(svg));
+};
+
+/**
+* Round a number considering the given decimal place precision for CSS positioning values
+*
+* @param {Number} n            Number
+* @return {Number}             Rounded number
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.sprite.prototype.toString" id="apidoc.element.svg-sprite.sprite.prototype.toString">
+        function <span class="apidocSignatureSpan">svg-sprite.sprite.prototype.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+	if (this._serialized === null) {
+		var svg						= this.xmlDeclaration + this.doctypeDeclaration;
+		svg							+= '&lt;svg';
+		for (var attr in this.rootAttributes) {
+			svg						+= ' ' + attr + '="' + _.escape(this.rootAttributes[attr]) + '"';
+		}
+		svg							+= '&gt;';
+		svg							+= this.content.join('');
+		svg							+= '&lt;/svg&gt;';
+
+		// Apply post-processing transformations
+		for (var t = 0; t &lt; this.transform.length; ++t) {
+			if (_.isFunction(this.transform[t])) {
+				svg					= this.transform[t](svg) || '';
+			}
+		}
+
+		this._serialized			= svg;
+	}
+
+	return this._serialized;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ *
+ * @param {File} file					Vinyl file
+ * @param {SVGSpriter} spriter			Spriter instance
+ */
+function SVGShape(file, spriter) {
+	this.source				= file;
+	this.spriter			= spriter;
+	this.svg				= {current: this.source.contents.<span class="apidocCodeKeywordSpan">toString</span>(), ready: null};
+	this.name				= this.source.path.substr(this.source.base.length + path.sep.length);
+	this.config				= _.merge(_.clone(defaultConfig, true), this.spriter.config.shape || {});
+
+	if (!_.isFunction(this.config.id.generator)) {
+		this.config.id.generator		= createIdGenerator(_.isString(this.config.id.generator) ? (this.config.id.generator + ((this.config
+.id.generator.indexOf('%s') &gt;= 0) ? '' : '%s')) : '%s');
+	}
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svg-sprite.stack" id="apidoc.module.svg-sprite.stack">module svg-sprite.stack</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.stack.stack" id="apidoc.element.svg-sprite.stack.stack">
+        function <span class="apidocSignatureSpan">svg-sprite.</span>stack
+        <span class="apidocSignatureSpan">(spriter, config, data, key)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function SVGSpriteStack(spriter, config, data, key) {
+	SVGSpriteStandalone.apply(this, [spriter, config, data, key]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svg-sprite.stack.prototype" id="apidoc.module.svg-sprite.stack.prototype">module svg-sprite.stack.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.stack.prototype._buildSVG" id="apidoc.element.svg-sprite.stack.prototype._buildSVG">
+        function <span class="apidocSignatureSpan">svg-sprite.stack.prototype.</span>_buildSVG
+        <span class="apidocSignatureSpan">(xmlDeclaration, doctypeDeclaration)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_buildSVG = function (xmlDeclaration, doctypeDeclaration) {
+	var rootAttributes				= _.extend(
+		{},
+		this.config.svg.rootAttributes,
+		{
+			viewBox					: '0 0 ' + this.maxDimensions.width + ' ' + this.maxDimensions.height
+		}
+	),
+	svg								= new SVGSprite(this.declaration(this.config.svg.xmlDeclaration, xmlDeclaration), this.declaration(this.config.svg.doctypeDeclaration
+, doctypeDeclaration), rootAttributes, true, this.config.svg.transform);
+	svg.add('&lt;style&gt;:root&gt;svg{display:none}:root&gt;svg:target{display:block}&lt;/style&gt;');
+	svg.add(pluck(this.data.shapes, 'svg'));
+	
+	return svg.toFile(this._spriter.config.dest, this._addCacheBusting(svg));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ */
+SVGSpriteCss.prototype.layout = function(files, cb) {
+
+	// Layout the sprite
+	var config						= this._layout();
+
+	// Build the sprite SVG file
+	files.sprite					= this.<span class="apidocCodeKeywordSpan">_buildSVG</span>(config.xmlDeclaration || '', config.doctypeDeclaration
+ || '');
+	this._spriter.verbose('Created Â«%sÂ» SVG sprite file (Â«%sÂ» mode)', this.key, this.mode);
+
+	// Build the configured CSS resources
+	this._buildCSSResources(files, function(error) {
+
+		// In case of errors: Break
+		if (error) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.stack.prototype._init" id="apidoc.element.svg-sprite.stack.prototype._init">
+        function <span class="apidocSignatureSpan">svg-sprite.stack.prototype.</span>_init
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_init = function () {
+	SVGSpriteStandalone.prototype._init.apply(this);
+	
+	// Determine the maximum shape dimensions
+	this.maxDimensions				= {width: 0, height: 0};
+	this.data.shapes.forEach(function(shape){
+		this.maxDimensions.width	= Math.max(this.maxDimensions.width, shape.width.outer);
+        this.maxDimensions.height	= Math.max(this.maxDimensions.height, shape.height.outer);
+	}, this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+	// Refine the base data
+	this.data						= _.merge(this.data, this._initData({
+		padding						: this._spriter.config.shape.spacing.padding,
+		sprite						: path.relative(this._cssDest, this.config.sprite).split(path.sep).join('/')
+	}));
+
+	this.<span class="apidocCodeKeywordSpan">_init</span>();
+}
+
+/**
+* Prototype
+*
+* @type {Object}
+*/
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.stack.prototype.constructor" id="apidoc.element.svg-sprite.stack.prototype.constructor">
+        function <span class="apidocSignatureSpan">svg-sprite.stack.prototype.</span>constructor
+        <span class="apidocSignatureSpan">(spriter, config, data, key)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function SVGSpriteStack(spriter, config, data, key) {
+	SVGSpriteStandalone.apply(this, [spriter, config, data, key]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.stack.prototype.layout" id="apidoc.element.svg-sprite.stack.prototype.layout">
+        function <span class="apidocSignatureSpan">svg-sprite.stack.prototype.</span>layout
+        <span class="apidocSignatureSpan">(files, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">layout = function (files, cb) {
+	this._layout(files, cb, function(shape, dataShape /*, index*/){
+		var dimensionAttributes		= shape.config.dimension.attributes;
+		
+		// Create the SVG getter/setter
+		dataShape.__defineGetter__('svg', function() {
+			return this._svg || shape.getSVG(true, function(shapeDOM) {
+				shapeDOM.setAttribute('id', shape.id);
+				
+				if (!dimensionAttributes) {
+					shapeDOM.removeAttribute('width');
+					shapeDOM.removeAttribute('height');
+				}
+			});
+		});
+	});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+SVGSpriteLayouter.prototype.layout = function(files, key, mode, cb) {
+	this._spriter.info('Laying out Â«%sÂ» sprite (Â«%sÂ» mode)', key, mode);
+	var SVGSpriteLayout				= require('./mode/' + mode),
+   config                          = _.merge(_.merge(_.clone(defaultConfig[mode], true), {svg: this._spriter.config.svg}), this.
+config[key] || {}),
+   data                            = _.merge(_.merge(_.merge({}, this._commonData), this._spriter.config.variables), config.variables
+),
+   sprite                          = new SVGSpriteLayout(this._spriter, config, data, key);
+   files[key]						= {};
+   sprite.<span class="apidocCodeKeywordSpan">layout</span>(files[key], cb);
+};
+
+/**
+* Module export (constructor wrapper)
+*
+* @param {SVGSpriter} spriter		SVG spriter
+* @param {Object} config			Layout configuration
+...</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svg-sprite.standalone" id="apidoc.module.svg-sprite.standalone">module svg-sprite.standalone</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.standalone.standalone" id="apidoc.element.svg-sprite.standalone.standalone">
+        function <span class="apidocSignatureSpan">svg-sprite.</span>standalone
+        <span class="apidocSignatureSpan">(spriter, config, data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function SVGSpriteStandalone(spriter, config, data) {
+	SVGSpriteBase.apply(this, [spriter, config, data]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svg-sprite.standalone.prototype" id="apidoc.module.svg-sprite.standalone.prototype">module svg-sprite.standalone.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.standalone.prototype._init" id="apidoc.element.svg-sprite.standalone.prototype._init">
+        function <span class="apidocSignatureSpan">svg-sprite.standalone.prototype.</span>_init
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_init = function () {
+
+	// Prepare the dimension suffix
+	this.config.dimensions			= _.isString(this.config.dimensions) ? this.config.dimensions.trim() : '-dims';
+	if (this.config.dimensions) {
+		this.config.dimensions		= /%s/g.test((this.config.dimensions || '').split('%%').join('')) ? util.format(this.config.dimensions
+, this.config.prefix) : (this.config.prefix + this.config.dimensions);
+	}
+
+	this.data.inline				= !!this.config.inline;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+	// Refine the base data
+	this.data						= _.merge(this.data, this._initData({
+		padding						: this._spriter.config.shape.spacing.padding,
+		sprite						: path.relative(this._cssDest, this.config.sprite).split(path.sep).join('/')
+	}));
+
+	this.<span class="apidocCodeKeywordSpan">_init</span>();
+}
+
+/**
+* Prototype
+*
+* @type {Object}
+*/
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.standalone.prototype._layout" id="apidoc.element.svg-sprite.standalone.prototype._layout">
+        function <span class="apidocSignatureSpan">svg-sprite.standalone.prototype.</span>_layout
+        <span class="apidocSignatureSpan">(files, cb, extend)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_layout = function (files, cb, extend) {
+
+	// Refine the shape data
+	var xmlDeclaration				= null,
+	doctypeDeclaration				= null;
+	this._spriter._shapes.forEach(function(shape, index) {
+
+		// Skip non-master shapes
+		if (!shape.master) {
+			xmlDeclaration			= xmlDeclaration || shape.xmlDeclaration;
+			doctypeDeclaration		= doctypeDeclaration || shape.doctypeDeclaration;
+			_.assign(this.data.shapes[index], {
+				selector			: {
+					dimensions		: shape.state ? [{
+						expression	: util.format(this.config.dimensions, shape.base) + ':' + shape.state,
+						raw			: util.format(this.config.dimensions, shape.base) + ':' + shape.state,
+						first		: true,
+						last		: false
+					}, {
+						expression	: util.format(this.config.dimensions, shape.base + '\\:' + shape.state),
+						raw			: util.format(this.config.dimensions, shape.base + ':' + shape.state),
+						first		: false,
+						last		: true
+					}] : [{
+						expression	: util.format(this.config.dimensions, shape.base),
+						raw			: util.format(this.config.dimensions, shape.base),
+						first		: true,
+						last		: true
+					}]
+				}
+			});
+			Object.defineProperty(this.data.shapes[index], '_svg', {
+			    enumerable			: false,
+			    writable			: true
+			});
+			this.data.shapes[index].__defineSetter__('svg', function(svg) {
+				this._svg			= svg;
+			});
+			extend(shape, this.data.shapes[index], index);
+		}
+	}, this);
+
+	// Remove all non-master shapes
+	this.data.shapes				= _.reject(this.data.shapes, function(shape){ return !!shape.master; });
+
+	// Build the sprite SVG file
+	files.sprite					= this._buildSVG(xmlDeclaration || '', doctypeDeclaration || '');
+	this._spriter.verbose('Created Â«%sÂ» SVG sprite file (Â«%sÂ» mode)', this.key, this.mode);
+
+	// Build the configured CSS resources
+	this._buildCSSResources(files, function(error) {
+
+		// In case of errors: Break
+		if (error) {
+			cb(error);
+
+		// Else: Build the HTML example
+		} else {
+			this._buildHTMLExample(files, cb);
+		}
+	}.bind(this));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * @param {Array} files				Files
+ * @param {Function} cb				Callback
+ * @return {void}
+ */
+SVGSpriteCss.prototype.layout = function(files, cb) {
+
+	// Layout the sprite
+	var config						= this.<span class="apidocCodeKeywordSpan">_layout</span>();
+
+	// Build the sprite SVG file
+	files.sprite					= this._buildSVG(config.xmlDeclaration || '', config.doctypeDeclaration || '');
+	this._spriter.verbose('Created Â«%sÂ» SVG sprite file (Â«%sÂ» mode)', this.key, this.mode);
+
+	// Build the configured CSS resources
+	this._buildCSSResources(files, function(error) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.standalone.prototype.constructor" id="apidoc.element.svg-sprite.standalone.prototype.constructor">
+        function <span class="apidocSignatureSpan">svg-sprite.standalone.prototype.</span>constructor
+        <span class="apidocSignatureSpan">(spriter, config, data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function SVGSpriteStandalone(spriter, config, data) {
+	SVGSpriteBase.apply(this, [spriter, config, data]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svg-sprite.symbol" id="apidoc.module.svg-sprite.symbol">module svg-sprite.symbol</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.symbol.symbol" id="apidoc.element.svg-sprite.symbol.symbol">
+        function <span class="apidocSignatureSpan">svg-sprite.</span>symbol
+        <span class="apidocSignatureSpan">(spriter, config, data, key)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function SVGSpriteSymbol(spriter, config, data, key) {
+	SVGSpriteStandalone.apply(this, [spriter, config, data, key]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svg-sprite.symbol.prototype" id="apidoc.module.svg-sprite.symbol.prototype">module svg-sprite.symbol.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.symbol.prototype._buildSVG" id="apidoc.element.svg-sprite.symbol.prototype._buildSVG">
+        function <span class="apidocSignatureSpan">svg-sprite.symbol.prototype.</span>_buildSVG
+        <span class="apidocSignatureSpan">(xmlDeclaration, doctypeDeclaration)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_buildSVG = function (xmlDeclaration, doctypeDeclaration) {
+	var inline						= !!this.config.inline,
+	rootAttributes					= _.extend(
+		{},
+		this.config.svg.rootAttributes
+	),
+	svg								= new SVGSprite(inline ? '' : this.declaration(this.config.svg.xmlDeclaration, xmlDeclaration), inline ? '' : this.declaration
+(this.config.svg.doctypeDeclaration, doctypeDeclaration), inline ? _.extend(
+			rootAttributes,
+			this.config.svg.dimensionAttributes ? {
+				width					: 0,
+				height					: 0
+			} : {}, {
+				style					: 'position:absolute'
+			}
+		) : rootAttributes, !inline, this.config.svg.transform);
+	svg.add(pluck(this.data.shapes, 'svg'));
+
+	return svg.toFile(this._spriter.config.dest, this._addCacheBusting(svg));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ */
+SVGSpriteCss.prototype.layout = function(files, cb) {
+
+	// Layout the sprite
+	var config						= this._layout();
+
+	// Build the sprite SVG file
+	files.sprite					= this.<span class="apidocCodeKeywordSpan">_buildSVG</span>(config.xmlDeclaration || '', config.doctypeDeclaration
+ || '');
+	this._spriter.verbose('Created Â«%sÂ» SVG sprite file (Â«%sÂ» mode)', this.key, this.mode);
+
+	// Build the configured CSS resources
+	this._buildCSSResources(files, function(error) {
+
+		// In case of errors: Break
+		if (error) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.symbol.prototype.constructor" id="apidoc.element.svg-sprite.symbol.prototype.constructor">
+        function <span class="apidocSignatureSpan">svg-sprite.symbol.prototype.</span>constructor
+        <span class="apidocSignatureSpan">(spriter, config, data, key)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function SVGSpriteSymbol(spriter, config, data, key) {
+	SVGSpriteStandalone.apply(this, [spriter, config, data, key]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.symbol.prototype.layout" id="apidoc.element.svg-sprite.symbol.prototype.layout">
+        function <span class="apidocSignatureSpan">svg-sprite.symbol.prototype.</span>layout
+        <span class="apidocSignatureSpan">(files, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">layout = function (files, cb) {
+	this._layout(files, cb, function(shape, dataShape /*, index*/){
+
+		// Create the SVG getter/setter
+		dataShape.__defineGetter__('svg', function() {
+			return this._svg || shape.getSVG(true, function(shapeDOM) {
+				shapeDOM.nodeName	=
+				shapeDOM.tagName	=
+				shapeDOM.localName	= 'symbol';
+				var removeAttributes = [];
+				Array.prototype.forEach.call(shapeDOM.attributes, function( attribute ){
+					if (symbolAttributes.indexOf(attribute.name) === -1) {
+						removeAttributes.push(attribute.name);
+					}
+				});
+				removeAttributes.forEach(function(attribute){
+					shapeDOM.removeAttribute(attribute);
+				})
+				shapeDOM.setAttribute('id', shape.id);
+			});
+		});
+	});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+SVGSpriteLayouter.prototype.layout = function(files, key, mode, cb) {
+	this._spriter.info('Laying out Â«%sÂ» sprite (Â«%sÂ» mode)', key, mode);
+	var SVGSpriteLayout				= require('./mode/' + mode),
+   config                          = _.merge(_.merge(_.clone(defaultConfig[mode], true), {svg: this._spriter.config.svg}), this.
+config[key] || {}),
+   data                            = _.merge(_.merge(_.merge({}, this._commonData), this._spriter.config.variables), config.variables
+),
+   sprite                          = new SVGSpriteLayout(this._spriter, config, data, key);
+   files[key]						= {};
+   sprite.<span class="apidocCodeKeywordSpan">layout</span>(files[key], cb);
+};
+
+/**
+* Module export (constructor wrapper)
+*
+* @param {SVGSpriter} spriter		SVG spriter
+* @param {Object} config			Layout configuration
+...</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svg-sprite.view" id="apidoc.module.svg-sprite.view">module svg-sprite.view</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.view.view" id="apidoc.element.svg-sprite.view.view">
+        function <span class="apidocSignatureSpan">svg-sprite.</span>view
+        <span class="apidocSignatureSpan">(spriter, config, data, key)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function SVGSpriteView(spriter, config, data, key) {
+	SVGSpriteCss.apply(this, [spriter, config, data, key]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.svg-sprite.view.prototype" id="apidoc.module.svg-sprite.view.prototype">module svg-sprite.view.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.view.prototype._buildSVG" id="apidoc.element.svg-sprite.view.prototype._buildSVG">
+        function <span class="apidocSignatureSpan">svg-sprite.view.prototype.</span>_buildSVG
+        <span class="apidocSignatureSpan">(xmlDeclaration, doctypeDeclaration)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_buildSVG = function (xmlDeclaration, doctypeDeclaration) {
+	var rootAttributes				= _.extend(
+		{},
+		this.config.svg.rootAttributes,
+		this.config.svg.dimensionAttributes ? {
+			width					: this.data.spriteWidth,
+			height					: this.data.spriteHeight
+		} : {},
+		{
+			viewBox					: '0 0 ' + this.data.spriteWidth + ' ' + this.data.spriteHeight
+		}
+	),
+	svg								= new SVGSprite(this.declaration(this.config.svg.xmlDeclaration, xmlDeclaration), this.declaration(this.config.svg.doctypeDeclaration
+, doctypeDeclaration), rootAttributes, true, this.config.svg.transform);
+	this.data.shapes.forEach(function(shape) {
+		var viewBox					= [-shape.position.absolute.x, -shape.position.absolute.y, shape.width.outer, shape.height.outer];
+		svg.add('&lt;view id="' + shape.name + '" viewBox="' + viewBox.join(' ') + '"/&gt;');
+		svg.add(shape.svg);
+	});
+
+	return svg.toFile(this._spriter.config.dest, this._addCacheBusting(svg));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ */
+SVGSpriteCss.prototype.layout = function(files, cb) {
+
+	// Layout the sprite
+	var config						= this._layout();
+
+	// Build the sprite SVG file
+	files.sprite					= this.<span class="apidocCodeKeywordSpan">_buildSVG</span>(config.xmlDeclaration || '', config.doctypeDeclaration
+ || '');
+	this._spriter.verbose('Created Â«%sÂ» SVG sprite file (Â«%sÂ» mode)', this.key, this.mode);
+
+	// Build the configured CSS resources
+	this._buildCSSResources(files, function(error) {
+
+		// In case of errors: Break
+		if (error) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.view.prototype._initData" id="apidoc.element.svg-sprite.view.prototype._initData">
+        function <span class="apidocSignatureSpan">svg-sprite.view.prototype.</span>_initData
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_initData = function (data) {
+
+	// If the HTML example should be rendered
+	if (this.config.example) {
+		var renderConfig			= {
+			template				: path.resolve(path.dirname(path.dirname(path.dirname(__dirname))), path.join('tmpl', this.mode, 'sprite.html')),
+			dest					: path.join(this.config.dest, 'sprite.' + this.key + '.html')
+		};
+		if (_.isObject(this.config.example)) {
+			if ('template' in this.config.example) {
+				renderConfig.template		= path.resolve(process.cwd(), this.config.example.template);
+			}
+			if ('dest' in this.config.example) {
+				renderConfig.dest			= path.resolve(this.config.dest, this.config.example.dest);
+			}
+		} else if (this.config.example !== true) {
+			renderConfig			= false;
+		}
+		this.config.example			= renderConfig;
+		data.example				= path.relative(path.dirname(renderConfig.dest), this.config.sprite).split(path.sep).join('/');
+	}
+
+	this._spriter.debug('Created Â«%sÂ» sprite instance (Â«%sÂ» mode)', this.key, this.mode);
+
+	return data;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+	// Prepare the CSS prefix
+	this.config.prefix				= this.config.prefix.trim();
+	if (!/%s/g.test(this.config.prefix.split('%%').join(''))) {
+		this.config.prefix			+= '%s';
+	}
+
+	// Refine the base data
+	this.data						= _.merge(this.data, this.<span class="apidocCodeKeywordSpan">_initData</span>({
+		padding						: this._spriter.config.shape.spacing.padding,
+		sprite						: path.relative(this._cssDest, this.config.sprite).split(path.sep).join('/')
+	}));
+
+	this._init();
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.view.prototype._refineRootAttributes" id="apidoc.element.svg-sprite.view.prototype._refineRootAttributes">
+        function <span class="apidocSignatureSpan">svg-sprite.view.prototype.</span>_refineRootAttributes
+        <span class="apidocSignatureSpan">(shape, index, rootAttributes)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_refineRootAttributes = function (shape, index, rootAttributes) {
+
+	// If it's the master shape multiple displaced copies
+	if (this._displaceable) {
+		if (shape.master) {
+			delete rootAttributes.id;
+			rootAttributes['xlink:href']	= '#' + shape.master.id + '-';
+		} else {
+			rootAttributes.id				+= '-';
+		}
+
+	// Else: Remove the ID attribute
+	} else {
+		delete rootAttributes.id;
+	}
+
+	return rootAttributes;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+			rootAttributes.y		= this.data.spriteHeight;
+			positionY				= -this.data.spriteHeight;
+
+			this.data.spriteWidth	= Math.max(this.data.spriteWidth, dimensions.width);
+			this.data.spriteHeight	= Math.ceil(this.data.spriteHeight + dimensions.height);
+	}
+
+	this._addShapeToCSSSprite(shape, needsRegular, index, position, this.<span class="apidocCodeKeywordSpan">_refineRootAttributes<!--
+span-->(shape, index, rootAttributes), positionX, positionY);
+};
+
+/**
+* Layout a binpacked CSS sprite
+*
+* @see http://codeincomplete.com/posts/2011/5/7/bin_packing/
+* @param {Object} pseudoShapeMap	Pseudo shape map
+...</span></pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.svg-sprite.view.prototype.constructor" id="apidoc.element.svg-sprite.view.prototype.constructor">
+        function <span class="apidocSignatureSpan">svg-sprite.view.prototype.</span>constructor
+        <span class="apidocSignatureSpan">(spriter, config, data, key)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function SVGSpriteView(spriter, config, data, key) {
+	SVGSpriteCss.apply(this, [spriter, config, data, key]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
