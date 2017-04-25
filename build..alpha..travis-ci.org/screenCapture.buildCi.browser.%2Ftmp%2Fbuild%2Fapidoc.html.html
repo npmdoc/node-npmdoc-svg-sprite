@@ -1530,23 +1530,20 @@
 	cb(null);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-SVGSpriteLayouter.prototype.layout = function(files, key, mode, cb) {
-	this._spriter.info('Laying out Â«%sÂ» sprite (Â«%sÂ» mode)', key, mode);
-	var SVGSpriteLayout				= require('./mode/' + mode),
-   config                          = _.merge(_.merge(_.clone(defaultConfig[mode], true), {svg: this._spriter.config.svg}), this.
-config[key] || {}),
-   data                            = _.merge(_.merge(_.merge({}, this._commonData), this._spriter.config.variables), config.variables
-),
-   sprite                          = new SVGSpriteLayout(this._spriter, config, data, key);
-   files[key]						= {};
-   sprite.<span class="apidocCodeKeywordSpan">layout</span>(files[key], cb);
-};
+ */
+SVGSpriter.prototype._layout = function(config, cb) {
+	var tasks					= [],
+	files						= {},
+	layout						= new LAYOUTER(this, config),
+	createLayoutTask			= function(k, m){
+		return function(_cb){
+			layout.<span class="apidocCodeKeywordSpan">layout</span>(files, k, m, _cb);
+		};
+	};
 
-/**
-* Module export (constructor wrapper)
-*
-* @param {SVGSpriter} spriter		SVG spriter
-* @param {Object} config			Layout configuration
+	for (var mode in config) {
+		tasks.push(createLayoutTask(mode, config[mode].mode));
+	}
 ...</pre></li>
     </ul>
 
@@ -1981,21 +1978,21 @@ SVGSpriteCss.prototype.layout = function(files, cb) {
 	};
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
- * @param {Array} files				Files
- * @param {Function} cb				Callback
- * @return {void}
- */
-SVGSpriteCss.prototype.layout = function(files, cb) {
+			this._shapes			= this._shapes.sort(this.config.shape.sort);
 
-	// Layout the sprite
-	var config						= this.<span class="apidocCodeKeywordSpan">_layout</span>();
+			// Set the shape namespaces on all master shapes
+			_.reject(this._shapes, function(shape) { return !!shape.master; }).map(function(shape, index){
+				shape.setNamespace(this._indexNamespace(index));
+			}, this);
 
-	// Build the sprite SVG file
-	files.sprite					= this._buildSVG(config.xmlDeclaration || '', config.doctypeDeclaration || '');
-	this._spriter.verbose('Created Â«%sÂ» SVG sprite file (Â«%sÂ» mode)', this.key, this.mode);
+			this.<span class="apidocCodeKeywordSpan">_layout</span>(args[0], function(error, files, data) {
 
-	// Build the configured CSS resources
-	this._buildCSSResources(files, function(error) {
+				// Add intermediate SVG files
+				if (that.config.shape.dest) {
+					files.shapes	= that._getShapeFiles(that.config.shape.dest);
+					that.verbose('Returning %d intermediate SVG files', files.shapes.length);
+				}
+				that.info('Finished %s sprite compilation', _.keys(data).map(function(mode){
 ...</pre></li>
     </ul>
 
@@ -2166,23 +2163,20 @@ SVGShape.prototype.setDimensions = function(width, height) {
 	}.bind(this));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-SVGSpriteLayouter.prototype.layout = function(files, key, mode, cb) {
-	this._spriter.info('Laying out Â«%sÂ» sprite (Â«%sÂ» mode)', key, mode);
-	var SVGSpriteLayout				= require('./mode/' + mode),
-   config                          = _.merge(_.merge(_.clone(defaultConfig[mode], true), {svg: this._spriter.config.svg}), this.
-config[key] || {}),
-   data                            = _.merge(_.merge(_.merge({}, this._commonData), this._spriter.config.variables), config.variables
-),
-   sprite                          = new SVGSpriteLayout(this._spriter, config, data, key);
-   files[key]						= {};
-   sprite.<span class="apidocCodeKeywordSpan">layout</span>(files[key], cb);
-};
+ */
+SVGSpriter.prototype._layout = function(config, cb) {
+	var tasks					= [],
+	files						= {},
+	layout						= new LAYOUTER(this, config),
+	createLayoutTask			= function(k, m){
+		return function(_cb){
+			layout.<span class="apidocCodeKeywordSpan">layout</span>(files, k, m, _cb);
+		};
+	};
 
-/**
-* Module export (constructor wrapper)
-*
-* @param {SVGSpriter} spriter		SVG spriter
-* @param {Object} config			Layout configuration
+	for (var mode in config) {
+		tasks.push(createLayoutTask(mode, config[mode].mode));
+	}
 ...</pre></li>
     </ul>
 
@@ -2317,23 +2311,20 @@ SVGSpriteCss.prototype.layout = function(files, cb) {
 	});
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-SVGSpriteLayouter.prototype.layout = function(files, key, mode, cb) {
-	this._spriter.info('Laying out Â«%sÂ» sprite (Â«%sÂ» mode)', key, mode);
-	var SVGSpriteLayout				= require('./mode/' + mode),
-   config                          = _.merge(_.merge(_.clone(defaultConfig[mode], true), {svg: this._spriter.config.svg}), this.
-config[key] || {}),
-   data                            = _.merge(_.merge(_.merge({}, this._commonData), this._spriter.config.variables), config.variables
-),
-   sprite                          = new SVGSpriteLayout(this._spriter, config, data, key);
-   files[key]						= {};
-   sprite.<span class="apidocCodeKeywordSpan">layout</span>(files[key], cb);
-};
+ */
+SVGSpriter.prototype._layout = function(config, cb) {
+	var tasks					= [],
+	files						= {},
+	layout						= new LAYOUTER(this, config),
+	createLayoutTask			= function(k, m){
+		return function(_cb){
+			layout.<span class="apidocCodeKeywordSpan">layout</span>(files, k, m, _cb);
+		};
+	};
 
-/**
-* Module export (constructor wrapper)
-*
-* @param {SVGSpriter} spriter		SVG spriter
-* @param {Object} config			Layout configuration
+	for (var mode in config) {
+		tasks.push(createLayoutTask(mode, config[mode].mode));
+	}
 ...</pre></li>
     </ul>
 
@@ -2414,23 +2405,20 @@ config[key] || {}),
     sprite.layout(files[key], cb);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-SVGSpriteLayouter.prototype.layout = function(files, key, mode, cb) {
-	this._spriter.info('Laying out Â«%sÂ» sprite (Â«%sÂ» mode)', key, mode);
-	var SVGSpriteLayout				= require('./mode/' + mode),
-   config                          = _.merge(_.merge(_.clone(defaultConfig[mode], true), {svg: this._spriter.config.svg}), this.
-config[key] || {}),
-   data                            = _.merge(_.merge(_.merge({}, this._commonData), this._spriter.config.variables), config.variables
-),
-   sprite                          = new SVGSpriteLayout(this._spriter, config, data, key);
-   files[key]						= {};
-   sprite.<span class="apidocCodeKeywordSpan">layout</span>(files[key], cb);
-};
+ */
+SVGSpriter.prototype._layout = function(config, cb) {
+	var tasks					= [],
+	files						= {},
+	layout						= new LAYOUTER(this, config),
+	createLayoutTask			= function(k, m){
+		return function(_cb){
+			layout.<span class="apidocCodeKeywordSpan">layout</span>(files, k, m, _cb);
+		};
+	};
 
-/**
-* Module export (constructor wrapper)
-*
-* @param {SVGSpriter} spriter		SVG spriter
-* @param {Object} config			Layout configuration
+	for (var mode in config) {
+		tasks.push(createLayoutTask(mode, config[mode].mode));
+	}
 ...</pre></li>
     </ul>
 
@@ -2874,23 +2862,20 @@ SVGSpriteCss.prototype.layout = function(files, cb) {
 	});
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-SVGSpriteLayouter.prototype.layout = function(files, key, mode, cb) {
-	this._spriter.info('Laying out Â«%sÂ» sprite (Â«%sÂ» mode)', key, mode);
-	var SVGSpriteLayout				= require('./mode/' + mode),
-   config                          = _.merge(_.merge(_.clone(defaultConfig[mode], true), {svg: this._spriter.config.svg}), this.
-config[key] || {}),
-   data                            = _.merge(_.merge(_.merge({}, this._commonData), this._spriter.config.variables), config.variables
-),
-   sprite                          = new SVGSpriteLayout(this._spriter, config, data, key);
-   files[key]						= {};
-   sprite.<span class="apidocCodeKeywordSpan">layout</span>(files[key], cb);
-};
+ */
+SVGSpriter.prototype._layout = function(config, cb) {
+	var tasks					= [],
+	files						= {},
+	layout						= new LAYOUTER(this, config),
+	createLayoutTask			= function(k, m){
+		return function(_cb){
+			layout.<span class="apidocCodeKeywordSpan">layout</span>(files, k, m, _cb);
+		};
+	};
 
-/**
-* Module export (constructor wrapper)
-*
-* @param {SVGSpriter} spriter		SVG spriter
-* @param {Object} config			Layout configuration
+	for (var mode in config) {
+		tasks.push(createLayoutTask(mode, config[mode].mode));
+	}
 ...</pre></li>
     </ul>
 
@@ -3032,21 +3017,21 @@ config[key] || {}),
 	}.bind(this));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
- * @param {Array} files				Files
- * @param {Function} cb				Callback
- * @return {void}
- */
-SVGSpriteCss.prototype.layout = function(files, cb) {
+			this._shapes			= this._shapes.sort(this.config.shape.sort);
 
-	// Layout the sprite
-	var config						= this.<span class="apidocCodeKeywordSpan">_layout</span>();
+			// Set the shape namespaces on all master shapes
+			_.reject(this._shapes, function(shape) { return !!shape.master; }).map(function(shape, index){
+				shape.setNamespace(this._indexNamespace(index));
+			}, this);
 
-	// Build the sprite SVG file
-	files.sprite					= this._buildSVG(config.xmlDeclaration || '', config.doctypeDeclaration || '');
-	this._spriter.verbose('Created Â«%sÂ» SVG sprite file (Â«%sÂ» mode)', this.key, this.mode);
+			this.<span class="apidocCodeKeywordSpan">_layout</span>(args[0], function(error, files, data) {
 
-	// Build the configured CSS resources
-	this._buildCSSResources(files, function(error) {
+				// Add intermediate SVG files
+				if (that.config.shape.dest) {
+					files.shapes	= that._getShapeFiles(that.config.shape.dest);
+					that.verbose('Returning %d intermediate SVG files', files.shapes.length);
+				}
+				that.info('Finished %s sprite compilation', _.keys(data).map(function(mode){
 ...</pre></li>
     </ul>
 
@@ -3187,23 +3172,20 @@ SVGSpriteCss.prototype.layout = function(files, cb) {
 	});
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-SVGSpriteLayouter.prototype.layout = function(files, key, mode, cb) {
-	this._spriter.info('Laying out Â«%sÂ» sprite (Â«%sÂ» mode)', key, mode);
-	var SVGSpriteLayout				= require('./mode/' + mode),
-   config                          = _.merge(_.merge(_.clone(defaultConfig[mode], true), {svg: this._spriter.config.svg}), this.
-config[key] || {}),
-   data                            = _.merge(_.merge(_.merge({}, this._commonData), this._spriter.config.variables), config.variables
-),
-   sprite                          = new SVGSpriteLayout(this._spriter, config, data, key);
-   files[key]						= {};
-   sprite.<span class="apidocCodeKeywordSpan">layout</span>(files[key], cb);
-};
+ */
+SVGSpriter.prototype._layout = function(config, cb) {
+	var tasks					= [],
+	files						= {},
+	layout						= new LAYOUTER(this, config),
+	createLayoutTask			= function(k, m){
+		return function(_cb){
+			layout.<span class="apidocCodeKeywordSpan">layout</span>(files, k, m, _cb);
+		};
+	};
 
-/**
-* Module export (constructor wrapper)
-*
-* @param {SVGSpriter} spriter		SVG spriter
-* @param {Object} config			Layout configuration
+	for (var mode in config) {
+		tasks.push(createLayoutTask(mode, config[mode].mode));
+	}
 ...</pre></li>
     </ul>
 
